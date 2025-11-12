@@ -10,9 +10,7 @@ const toKebab = (value: string) =>
     .toLowerCase();
 
 const mapColors = () =>
-  Object.fromEntries(
-    Object.entries(palette).map(([group, shades]) => [toKebab(group), Object.fromEntries(Object.entries(shades).map(([name, hex]) => [toKebab(name), hex]))])
-  );
+  Object.fromEntries(Object.entries(palette).map(([group, shades]) => [group, Object.fromEntries(Object.entries(shades).map(([name, hex]) => [name, hex]))]));
 
 const mapFontSizes = () =>
   Object.fromEntries(
