@@ -1,31 +1,24 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import MainPage from "./routes/main";
+import WorksPage from "./routes/works";
+import PartnersPage from "./routes/partners";
+import GuestbookPage from "./routes/guestbook";
+import ExhibitionPage from "./routes/exhibition";
+import BoothPage from "./routes/booth";
+import NotFoundPage from "./routes/notFound";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="text-xxl-medium bg-red-normal text-white">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+    <Routes>
+      <Route path="/" element={<MainPage />} />
+      <Route path="/works" element={<WorksPage />} />
+      <Route path="/partners" element={<PartnersPage />} />
+      <Route path="/guestbook" element={<GuestbookPage />} />
+      <Route path="/exhibition" element={<ExhibitionPage />} />
+      <Route path="/booth" element={<BoothPage />} />
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
   );
-}
+};
 
 export default App;
