@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/navbar";
 import MainPage from "./routes/main";
 import WorksPage from "./routes/works";
@@ -8,15 +8,16 @@ import ExhibitionPage from "./routes/exhibition";
 import BoothPage from "./routes/booth";
 import NotFoundPage from "./routes/notFound";
 import Footer from "./components/footer";
+import HamburgerMenu from "./components/hamburgerMenu";
+import useLayoutState from "./hooks/useLayoutState";
 
 const App = () => {
-  const location = useLocation();
-  const isMainPage = location.pathname === "/";
+  const { isMainPage, isMenuOpen, mainClassName, containerClassName, handleMenuOpen, handleMenuClose } = useLayoutState();
 
   return (
-    <div className="min-h-screen bg-grey-light">
-      {!isMainPage && <Navbar />}
-      <main className={`mx-auto w-full max-w-6xl px-8 pb-10 ${isMainPage ? "" : "pt-16 bg-grey-normal"}`}>
+    <div className={containerClassName}>
+      {!isMainPage && <Navbar onMenuOpen={handleMenuOpen} />}
+      <main className={mainClassName} aria-hidden={isMenuOpen}>
         <Routes>
           <Route index element={<MainPage />} />
           <Route path="/works" element={<WorksPage />} />
@@ -28,6 +29,7 @@ const App = () => {
         </Routes>
       </main>
       {!isMainPage && <Footer />}
+      {!isMainPage && <HamburgerMenu open={isMenuOpen} onClose={handleMenuClose} />}
     </div>
   );
 };
