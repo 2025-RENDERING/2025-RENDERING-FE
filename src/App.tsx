@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/navbar";
+import MainPage from "./routes/main";
+import WorksPage from "./routes/works";
+import PartnersPage from "./routes/partners";
+import GuestbookPage from "./routes/guestbook";
+import ExhibitionPage from "./routes/exhibition";
+import BoothPage from "./routes/booth";
+import NotFoundPage from "./routes/notFound";
+import Footer from "./components/footer";
+import HamburgerMenu from "./components/hamburgerMenu";
+import useLayoutState from "./hooks/useLayoutState";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const { isMainPage, isMenuOpen, mainClassName, containerClassName, handleMenuOpen, handleMenuClose } = useLayoutState();
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className={containerClassName}>
+      {!isMainPage && <Navbar onMenuOpen={handleMenuOpen} />}
+      <main className={mainClassName} aria-hidden={isMenuOpen}>
+        <Routes>
+          <Route index element={<MainPage />} />
+          <Route path="/works" element={<WorksPage />} />
+          <Route path="/partners" element={<PartnersPage />} />
+          <Route path="/guestbook" element={<GuestbookPage />} />
+          <Route path="/exhibition" element={<ExhibitionPage />} />
+          <Route path="/booth" element={<BoothPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
+      {!isMainPage && <Footer />}
+      {!isMainPage && <HamburgerMenu open={isMenuOpen} onClose={handleMenuClose} />}
+    </div>
+  );
+};
 
-export default App
+export default App;
