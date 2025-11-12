@@ -214,12 +214,19 @@ main ← feat
  ┗ 📜yarn.lock
 ```
 
-- public
-  - favicons - 파비콘
-  - fonts - 폰트
-- src
-  - assets - 사용되는 모든 에셋
-  - components - 라우팅 페이지 외 모든 기능 및 컴포넌트
-  - routes - 라우팅 페이지
-  - styles - CSS(Styled-components 등)
+- public/
+    favicons/
+    fonts/
+
+- src/
+    assets/        // 이미지, 아이콘, 기타 정적 파일
+    lib/           // colorPalette.ts, typography.ts 등
+    components/    // UI 컴포넌트, 재사용 가능한 기능
+    routes/        // 페이지 단위 라우팅
+    service/       // API 모듈
+    styles/        // Tailwind 글로벌 스타일, 커스텀 CSS
+    hooks/         // 커스텀 훅 
+    context/       // 전역 상태관리 
+    App.tsx
+
   <!-- prettier-ignore-end -->
