@@ -25,7 +25,7 @@ const GuestbookForm: React.FC<GuestbookFormProps> = ({ onSuccess }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3">
+    <form onSubmit={handleSubmit} className="w-full max-w-[354px] mx-auto space-y-3">
       <div>
         <input
           className="w-[172px] rounded-none border-none px-4 py-3 bg-red-normal text-[14px] font-medium text-red-lightActive outline-none placeholder:text-red-lightActive"
