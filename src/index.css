@@ -38,4 +38,13 @@
   a:hover {
     color: theme("colors.blue.normal-hover");
   }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  html {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+  }
 }
