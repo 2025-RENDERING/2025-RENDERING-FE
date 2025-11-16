@@ -10,7 +10,7 @@ const useLayoutState = () => {
   const handleMenuClose = useCallback(() => setMenuOpen(false), []);
 
   const mainClassName = useMemo(() => {
-    const base = "mx-auto w-full max-w-6xl px-8 pb-10";
+    const base = "mx-auto w-full max-w-6xl px-[24px] pb-10";
     const layout = isMainPage ? "" : "pt-16 bg-grey-normal";
     const overlayState = isMenuOpen ? "pointer-events-none blur-sm" : "";
     return [base, layout, overlayState].filter(Boolean).join(" ");

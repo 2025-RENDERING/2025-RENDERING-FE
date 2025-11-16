@@ -36,9 +36,9 @@ const GuestbookForm: React.FC<GuestbookFormProps> = ({ onSuccess }) => {
         />
       </div>
 
-      <div>
+      <div className='max-w-[354px]'>
         <textarea
-          className="h-[80px] w-full resize-none rounded-none border border-red-normal bg-grey-nomal p-[14px] text-[14px] text-grey-dark placeholder:text-grey-dark outline-none"
+          className="h-[80px] w-full resize-none rounded-none border border-red-normal bg-grey-normal p-[14px] text-[14px] text-grey-dark placeholder:text-grey-dark outline-none scrollbar-hide"
           placeholder="방명록을 남겨 주세요.(100자 이내)"
           maxLength={MAX_MESSAGE}
           value={message}

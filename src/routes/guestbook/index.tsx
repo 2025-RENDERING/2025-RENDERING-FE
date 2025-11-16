@@ -40,8 +40,8 @@ const GuestbookPage: React.FC = () => {
   };
 
   return (
-    <main>
-      <div className="mx-auto flex flex-col pb-[38px] pt-[55px]">
+    <main className='flex justify-center items-center'>
+      <div className="flex flex-col pb-[38px] pt-[55px]">
 
       <GuestbookForm onSuccess={handleCreateSuccess} />
 
@@ -58,7 +58,7 @@ const GuestbookPage: React.FC = () => {
           )}
           
           {!isLoading && (
-            <div className="grid gap-4">
+            <div className="grid">
               <GuestbookList entries={entries} />
             </div>
           )}
