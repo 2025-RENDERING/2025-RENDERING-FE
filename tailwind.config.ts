@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 import palette from "./src/lib/colorPalette";
 import typography from "./src/lib/typography";
+import tailwindScrollbarHide from "tailwind-scrollbar-hide";
 
 const toKebab = (value: string) =>
   value
@@ -39,7 +40,9 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+  tailwindScrollbarHide
+]
 };
 
 export default config;
