@@ -33,7 +33,8 @@
       "@/lib/*": ["lib/*"],
       "@/routes/*": ["routes/*"],
       "@/service/*": ["service/*"],
-      "@/types/*": ["types/*"]
+      "@/types/*": ["types/*"],
+      "@/data/*": ["data/*"]
     }
   },
   "include": ["src"]
