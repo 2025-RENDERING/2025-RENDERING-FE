@@ -1,9 +1,45 @@
+import Intro from "./components/Intro";
+import Divider from "./components/Divider";
+import Schedule from "./components/Schedule";
+import Way from "./components/Way";
+import Committee from "./components/Committee";
+import Menu from "./components/Menu";
+
+import mainBG from "@/assets/main.png";
+import LogoIcon from "@/assets/rendering-logo.png";
+import LineIcon from "@/assets/lineIcon.svg";
+import LineOrangeIcon from "@/assets/LineOrangeIcon.svg";
+
 const ExhibitionPage = () => {
   return (
-    <section className="space-y-6">
-      <h1 className="text-text-xxl-medium">Exhibition</h1>
-      <p className="text-text-m-regular text-grey-dark">전시 행사와 관련된 소개를 배치하는 페이지입니다.</p>
-    </section>
+    <>
+      <section className="relative z-20">
+        <div>
+          <img src={LogoIcon} alt="rendering" />
+        </div>
+
+        <Intro />
+
+        <Divider icon={LineIcon} />
+
+        <Schedule />
+
+        <Divider icon={LineOrangeIcon} />
+
+        <Way />
+
+        <Divider icon={LineIcon} />
+
+        <Committee />
+
+        <Menu />
+      </section>
+
+      <div
+        className="fixed inset-0 bg-cover bg-center z-10 h-full"
+        style={{ backgroundImage: `url(${mainBG})` }}
+      ></div>
+    </>
   );
 };
 
