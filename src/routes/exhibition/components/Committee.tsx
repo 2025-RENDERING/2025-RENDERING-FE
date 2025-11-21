@@ -12,7 +12,7 @@ const Committee = () => {
       content={
         <div className="flex flex-col items-center text-grey-normal">
           {NAMES.map((name) => (
-            <div className="flex max-w-[153px] w-full justify-between">
+            <div key={name.id} className="flex max-w-[153px] w-full justify-between">
               <p className="text-m-bold">{name.role}</p>
               <p className="text-m-regular">{name.name}</p>
             </div>
