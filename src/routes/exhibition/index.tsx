@@ -13,9 +13,9 @@ import LineOrangeIcon from "@/assets/LineOrangeIcon.svg";
 const ExhibitionPage = () => {
   return (
     <>
-      <section className="relative z-20">
-        <div>
-          <img src={LogoIcon} alt="rendering" />
+      <section className="relative z-20 flex flex-col items-center">
+        <div className="max-w-[300px] w-full mt-[50px] mb-[78px]">
+          <img src={LogoIcon} alt="rendering" className="w-full h-full object-contain" />
         </div>
 
         <Intro />

@@ -1,9 +1,11 @@
 const Intro = () => {
   return (
-    <section className="text-center">
-      <h1>상상이 현실이 되는 순간, RENDERING</h1>
+    <section className="text-center flex flex-col gap-[40px]">
+      <h1 className="text-blue-lightHover text-[16px] text-m-bold">
+        상상이 현실이 되는 순간, RENDERING
+      </h1>
 
-      <div>
+      <div className="text-grey-normal text-x-medium leading-[19.6px]">
         <p>
           덕성여자대학교 IT미디어공학전공은
           <br />
@@ -19,7 +21,8 @@ const Intro = () => {
           <br />
           이 모든 배움의 조각들이 층층이 쌓여
           <br />
-          마침내 RENDERING 99%에 도달했습니다.
+          <span className="text-s-bold text-red-normal">마침내 RENDERING 99%</span>에
+          도달했습니다.
         </p>
 
         <br />
@@ -34,7 +37,8 @@ const Intro = () => {
           <br />
           그리고 창조적 여정이 집약된 결과이자
           <br />
-          상상이 현실이 되는 순간 그 자체입니다.
+          <span className="text-s-bold text-red-normal">상상이 현실이 되는 순간</span> 그
+          자체입니다.
         </p>
 
         <p>
