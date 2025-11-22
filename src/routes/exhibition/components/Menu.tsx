@@ -7,14 +7,14 @@ const Menu = () => {
   const MENU = [
     {
       id: 1,
-      icon: <HomeIcon />,
+      icon: <HomeIcon className="shrink-0" />,
       label: "학과 홈페이지",
       to: "https://www.duksung.ac.kr/itmedia/main.do",
     },
-    { id: 2, icon: <KakaoIcon />, label: "카카오톡 초대장 공유" },
+    { id: 2, icon: <KakaoIcon className="shrink-0" />, label: "카카오톡 초대장 공유" },
     {
       id: 3,
-      icon: <InstaIcon />,
+      icon: <InstaIcon className="shrink-0" />,
       label: "전시회 인스타그램",
       to: "https://www.instagram.com/dswu_itmedia_24/",
     },
@@ -74,7 +74,7 @@ const Menu = () => {
         >
           <div
             onClick={menu.id === 2 ? handleShareKakao : undefined}
-            className="size-[64px] px-[18px] py-[16px] rounded-[9px] bg-red-lightHover cursor-pointer"
+            className="size-[64px] px-[18px] py-[16px] rounded-[9px] bg-red-lightHover cursor-pointer flex justify-center items-center"
           >
             {menu.id === 2 && menu.icon}
             {menu.id !== 2 && (

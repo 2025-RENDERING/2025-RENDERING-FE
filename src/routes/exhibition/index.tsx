@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Intro from "./components/Intro";
 import Divider from "./components/Divider";
@@ -22,17 +22,21 @@ import Right1 from "@/assets/animation-right1-art.svg?react";
 import Right2 from "@/assets/animation-right2-card.svg?react";
 import Right3 from "@/assets/animation-right3-sound.svg?react";
 import Right4 from "@/assets/animation-right4-line.svg?react";
+import Animate from "./components/Animate";
 
 const ExhibitionPage = () => {
   const [isClicked, setIsClicked] = useState(false);
 
-  useEffect(() => {
-    setIsClicked(true);
-  }, []);
+  // useEffect(() => {
+  //   setIsClicked(true);
+  // }, []);
 
   return (
     <>
-      <section className="relative z-20 flex flex-col items-center ">
+      <section
+        onClick={() => setIsClicked((prev) => !prev)}
+        className="relative z-20 flex flex-col items-center "
+      >
         <div
           className={`${
             isClicked ? "pt-[71px]" : "pt-[50px]"
@@ -51,104 +55,88 @@ const ExhibitionPage = () => {
           </div>
         </div>
 
-        <Left1
-          className={`absolute top-[70px] left-[-24px] transition-all duration-700 ease-out transform ${
-            isClicked
-              ? "opacity-100 translate-x-0 translate-y-0"
-              : "opacity-0 -translate-x-20 -translate-y-20"
-          }`}
+        <Animate
+          Icon={Left1}
+          position={{ top: "70px", left: "-24px" }}
+          isClicked={isClicked}
+          exit="-translate-x-20 -translate-y-20"
         />
 
-        <Left2
-          className={`absolute top-[340px] left-[-24px] transition-all duration-700 ease-out transform ${
-            isClicked
-              ? "opacity-100 translate-x-0 translate-y-0"
-              : "opacity-0 -translate-x-16"
-          }`}
+        <Animate
+          Icon={Left2}
+          position={{ top: "340px", left: "-24px" }}
+          isClicked={isClicked}
+          exit="-translate-x-16"
         />
 
-        <Left3
-          className={`absolute top-[633px] left-[-24px] transition-all duration-700 ease-out transform ${
-            isClicked
-              ? "opacity-100 translate-x-0 translate-y-0"
-              : "opacity-0 -translate-x-full"
-          }`}
+        <Animate
+          Icon={Left3}
+          position={{ top: "633px", left: "-24px" }}
+          isClicked={isClicked}
+          exit="-translate-x-full"
         />
 
-        <Left4
-          className={`absolute top-[615px] left-[-24px] transition-all duration-700 ease-out transform ${
-            isClicked
-              ? "opacity-100 translate-x-0 translate-y-0"
-              : "opacity-0 -translate-x-full translate-y-40"
-          }`}
+        <Animate
+          Icon={Left4}
+          position={{ top: "615px", left: "-24px" }}
+          isClicked={isClicked}
+          exit="-translate-x-full translate-y-40"
         />
 
-        <Left5
-          className={`absolute top-[1002px] left-[24px] transition-all duration-700 ease-out transform ${
-            isClicked
-              ? "opacity-100 translate-x-0 translate-y-0"
-              : "opacity-0 -translate-x-full translate-y-40"
-          }`}
+        <Animate
+          Icon={Left5}
+          position={{ top: "1002px", left: "-24px" }}
+          isClicked={isClicked}
+          exit="-translate-x-full translate-y-40"
         />
 
-        <Left6
-          className={`absolute top-[1063px] left-[-24px] transition-all duration-700 ease-out transform ${
-            isClicked
-              ? "opacity-100 translate-x-0 translate-y-0"
-              : "opacity-0 -translate-x-full translate-y-40"
-          }`}
+        <Animate
+          Icon={Left6}
+          position={{ top: "1063px", left: "-24px" }}
+          isClicked={isClicked}
+          exit="-translate-x-full translate-y-40"
         />
 
-        <Left7
-          className={`absolute top-[1239px] left-[-24px] transition-all duration-700 ease-out transform ${
-            isClicked ? "opacity-100" : "opacity-0"
-          }`}
+        <Animate
+          Icon={Left7}
+          position={{ top: "1239px", left: "-24px" }}
+          isClicked={isClicked}
         />
 
-        <Right1
-          className={`absolute top-[131px] right-[-24px] transition-all duration-700 ease-out transform ${
-            isClicked
-              ? "opacity-100 translate-x-0 translate-y-0"
-              : "opacity-0 translate-x-16 -translate-y-16"
-          }`}
+        <Animate
+          Icon={Right1}
+          position={{ top: "131px", right: "-24px" }}
+          isClicked={isClicked}
+          exit="translate-x-16 -translate-y-16"
         />
 
-        <Right2
-          className={`absolute top-[434px] right-[-24px] transition-all duration-700 ease-out transform ${
-            isClicked
-              ? "opacity-100 translate-x-0 translate-y-0"
-              : "opacity-0 translate-x-28"
-          }`}
+        <Animate
+          Icon={Right2}
+          position={{ top: "434px", right: "-24px" }}
+          isClicked={isClicked}
+          exit="translate-x-28"
         />
 
-        <Right3
-          className={`absolute top-[777px] right-[-24px] transition-all duration-700 ease-out transform ${
-            isClicked
-              ? "opacity-100 translate-x-0 translate-y-0"
-              : "opacity-0 translate-x-full"
-          }`}
+        <Animate
+          Icon={Right3}
+          position={{ top: "777px", right: "-24px" }}
+          isClicked={isClicked}
+          exit="translate-x-full"
         />
 
-        <Right4
-          className={`absolute top-[1592px] right-[-24px] transition-all duration-700 ease-out transform ${
-            isClicked ? "opacity-100" : "opacity-0 "
-          }`}
+        <Animate
+          Icon={Right4}
+          position={{ top: "1592px", right: "-24px" }}
+          isClicked={isClicked}
         />
 
         <Intro />
-
         <Divider icon={LineIcon} />
-
         <Schedule />
-
         <Divider icon={LineOrangeIcon} />
-
         <Way />
-
         <Divider icon={LineIcon} />
-
         <Committee />
-
         <Menu />
       </section>
 
