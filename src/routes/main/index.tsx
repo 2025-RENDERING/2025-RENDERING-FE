@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
 
-import HomeBG from "@/assets/homePage.png";
-import Logo from "@/assets/rendering-logo.png";
+import HomeBG from "@/assets/homePage.svg";
+import Logo from "@/assets/homeLogo.png";
 import HomeIcon from "@/assets/homeIcon.png";
+import TextIcon from "@/assets/homeTextIcon.svg?react";
+import CodeIcon from "@/assets/homeCodeIcon.svg?react";
 
 const MainPage = () => {
   const MENU = [
@@ -36,6 +38,9 @@ const MainPage = () => {
         <div className="w-screen max-w-[480px] mr-[11px]">
           <img src={HomeIcon} alt="icon" className="w-full h-full object-contain" />
         </div>
+
+        <TextIcon className="fixed top-[69vh] left-[35px] z-[-1]" />
+        <CodeIcon className="fixed top-[77vh] left-[35px] z-[-1]" />
 
         <div className="flex flex-col gap-[20px] items-center w-full mt-[5vh]">
           {MENU_ROWS.map((row, idx) => (
