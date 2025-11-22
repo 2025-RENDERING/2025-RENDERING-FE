@@ -11,12 +11,14 @@ const WorksCard = ({ thumbnailImageUrl, teamName, title, oneLineDescription }: W
   const imageSrc = new URL(thumbnailImageUrl, import.meta.url).href;
 
   return (
-    <>
-      <img src={imageSrc} alt="썸네일 이미지" />
-      <p>{teamName}</p>
-      <h1 className="text-text-xxl-medium">{title}</h1>
-      <p className="text-text-m-regular text-grey-dark">{oneLineDescription}</p>
-    </>
+    <div className="w-full h-auto">
+      <img className="w-full h-auto rounded-[4px]" src={imageSrc} alt="썸네일 이미지" />
+      <div className="w-full flex flex-col mt-[14px] gap-y-[10px]">
+        <p className="w-full text-[12px] font-bold text-red-normal">| {teamName}</p>
+        <h1 className="w-full text-[16px] font-bold text-blue-normal">{title}</h1>
+        <p className="text-text-m-regular text-grey-darkActive">{oneLineDescription}</p>
+      </div>
+    </div>
   );
 };
 
