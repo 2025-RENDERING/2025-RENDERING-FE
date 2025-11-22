@@ -13,6 +13,11 @@ const MainPage = () => {
     { id: 5, label: "협찬/제휴 소개", to: "/partners" },
   ];
 
+  const MENU_ROWS = [
+    { items: MENU.slice(0, 3), gap: "gap-[20px]" },
+    { items: MENU.slice(3), gap: "gap-[27px]" },
+  ];
+
   return (
     <>
       <section className="max-w-[480px] w-full m-auto relative z-20 flex flex-col items-center justify-center h-dvh pt-[125px] pb-[35px]">
@@ -33,28 +38,19 @@ const MainPage = () => {
         </div>
 
         <div className="flex flex-col gap-[20px] items-center w-full mt-[5vh]">
-          <div className="flex justify-center gap-[20px] w-full">
-            {MENU.slice(0, 3).map((menu) => (
-              <NavLink
-                key={menu.id}
-                to={menu.to}
-                className="max-w-[100px] w-full h-[36px] rounded-[4px] bg-red-normal flex justify-center items-center text-xs-medium leading-[16px] text-grey-normal"
-              >
-                {menu.label}
-              </NavLink>
-            ))}
-          </div>
-          <div className="flex justify-center gap-[27px] w-full">
-            {MENU.slice(3).map((menu) => (
-              <NavLink
-                key={menu.id}
-                to={menu.to}
-                className="max-w-[100px] w-full h-[36px] rounded-[4px] bg-red-normal flex justify-center items-center text-xs-medium leading-[16px] text-grey-normal"
-              >
-                {menu.label}
-              </NavLink>
-            ))}
-          </div>
+          {MENU_ROWS.map((row, idx) => (
+            <div key={idx} className={`${row.gap} flex justify-center w-full`}>
+              {row.items.map((menu) => (
+                <NavLink
+                  key={menu.id}
+                  to={menu.to}
+                  className="max-w-[100px] w-full h-[36px] rounded-[4px] bg-red-normal flex justify-center items-center text-xs-medium leading-[16px] text-grey-normal"
+                >
+                  {menu.label}
+                </NavLink>
+              ))}
+            </div>
+          ))}
         </div>
       </section>
 
