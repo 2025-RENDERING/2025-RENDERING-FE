@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Intro from "./components/Intro";
 import Divider from "./components/Divider";
@@ -27,9 +27,18 @@ import Animate from "./components/Animate";
 const ExhibitionPage = () => {
   const [isClicked, setIsClicked] = useState(false);
 
-  // useEffect(() => {
-  //   setIsClicked(true);
-  // }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsClicked(true);
+      window.removeEventListener("scroll", handleScroll);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
