@@ -1,9 +1,68 @@
+import { NavLink } from "react-router-dom";
+
+import HomeBG from "@/assets/homePage.png";
+import Logo from "@/assets/rendering-logo.png";
+import HomeIcon from "@/assets/homeIcon.png";
+
 const MainPage = () => {
+  const MENU = [
+    { id: 1, label: "전시 소개", to: "/exhibition" },
+    { id: 2, label: "작품 목록", to: "/works" },
+    { id: 3, label: "부스 배치도", to: "/booth" },
+    { id: 4, label: "방명록", to: "/guestbook" },
+    { id: 5, label: "협찬/제휴 소개", to: "/partners" },
+  ];
+
   return (
-    <section className="space-y-6">
-      <h1 className="text-text-xxxl-medium">Main</h1>
-      <p className="text-text-m-regular text-grey-dark">메인 페이지 콘텐츠를 여기에 구성하세요.</p>
-    </section>
+    <>
+      <section className="max-w-[480px] w-full m-auto relative z-20 flex flex-col items-center justify-center h-dvh pt-[125px] pb-[35px]">
+        <div className="flex flex-col items-end">
+          <h1 className="text-blue-light text-[14px] font-extrabold text-right">
+            2025 덕성여자대학교 IT미디어공학전공 제13회 졸업전시회
+          </h1>
+          <div className="max-w-[315px] w-[73vw] mt-[18px] mb-[10px]">
+            <img src={Logo} alt="RENDERING" className="w-full h-full object-cover" />
+          </div>
+          <h3 className="text-blue-lightActive text-right text-[17px] font-bold tracking-[5.1px]">
+            상상이 현실이 되는 순간
+          </h3>
+        </div>
+
+        <div className="w-screen max-w-[480px] mr-[11px]">
+          <img src={HomeIcon} alt="icon" className="w-full h-full object-cover" />
+        </div>
+
+        <div className="flex flex-col gap-[20px] items-center w-full mt-[48px]">
+          <div className="flex justify-center gap-[20px] w-full">
+            {MENU.slice(0, 3).map((menu) => (
+              <NavLink
+                key={menu.id}
+                to={menu.to}
+                className="max-w-[100px] w-full h-[36px] rounded-[4px] bg-red-normal flex justify-center items-center text-xs-medium leading-[16px] text-grey-normal"
+              >
+                {menu.label}
+              </NavLink>
+            ))}
+          </div>
+          <div className="flex justify-center gap-[27px] w-full">
+            {MENU.slice(3).map((menu) => (
+              <NavLink
+                key={menu.id}
+                to={menu.to}
+                className="max-w-[100px] w-full h-[36px] rounded-[4px] bg-red-normal flex justify-center items-center text-xs-medium leading-[16px] text-grey-normal"
+              >
+                {menu.label}
+              </NavLink>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div
+        className="fixed inset-0 bg-cover bg-center z-10 h-full"
+        style={{ backgroundImage: `url(${HomeBG})` }}
+      ></div>
+    </>
   );
 };
 
