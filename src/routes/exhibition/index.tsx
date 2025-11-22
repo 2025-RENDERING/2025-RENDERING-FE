@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Intro from "./components/Intro";
 import Divider from "./components/Divider";
@@ -26,16 +26,13 @@ import Right4 from "@/assets/animation-right4-line.svg?react";
 const ExhibitionPage = () => {
   const [isClicked, setIsClicked] = useState(false);
 
-  const handleClick = () => {
-    if (!isClicked) setIsClicked(true);
-  };
+  useEffect(() => {
+    setIsClicked(true);
+  }, []);
 
   return (
     <>
-      <section
-        onClick={handleClick}
-        className="relative z-20 flex flex-col items-center "
-      >
+      <section className="relative z-20 flex flex-col items-center ">
         <div
           className={`${
             isClicked ? "pt-[71px]" : "pt-[50px]"

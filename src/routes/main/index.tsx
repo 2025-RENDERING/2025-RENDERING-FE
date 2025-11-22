@@ -17,7 +17,7 @@ const MainPage = () => {
     <>
       <section className="max-w-[480px] w-full m-auto relative z-20 flex flex-col items-center justify-center h-dvh pt-[125px] pb-[35px]">
         <div className="flex flex-col items-end">
-          <h1 className="text-blue-light text-[14px] font-extrabold text-right">
+          <h1 className="text-blue-light text-[14px] max-[380px]:text-[12px] font-extrabold text-right">
             2025 덕성여자대학교 IT미디어공학전공 제13회 졸업전시회
           </h1>
           <div className="max-w-[315px] w-[73vw] mt-[18px] mb-[10px]">
@@ -29,10 +29,10 @@ const MainPage = () => {
         </div>
 
         <div className="w-screen max-w-[480px] mr-[11px]">
-          <img src={HomeIcon} alt="icon" className="w-full h-full object-cover" />
+          <img src={HomeIcon} alt="icon" className="w-full h-full object-contain" />
         </div>
 
-        <div className="flex flex-col gap-[20px] items-center w-full mt-[48px]">
+        <div className="flex flex-col gap-[20px] items-center w-full mt-[5vh]">
           <div className="flex justify-center gap-[20px] w-full">
             {MENU.slice(0, 3).map((menu) => (
               <NavLink
