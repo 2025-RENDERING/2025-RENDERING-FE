@@ -1,17 +1,31 @@
+import { useNavigate } from "react-router-dom";
 import { PROJECT_LIST } from "@/data/projectListData";
 
 interface WorksCardProps {
+  id: number;
   thumbnailImageUrl: string;
   teamName: string;
   title: string;
   oneLineDescription: string;
 }
 
-const WorksCard = ({ thumbnailImageUrl, teamName, title, oneLineDescription }: WorksCardProps) => {
+const WorksCard = ({
+  id,
+  thumbnailImageUrl,
+  teamName,
+  title,
+  oneLineDescription,
+}: WorksCardProps) => {
+  const navigate = useNavigate();
+
+  const handleNavigate = (path: string) => {
+    navigate(path);
+  };
+
   const imageSrc = new URL(thumbnailImageUrl, import.meta.url).href;
 
   return (
-    <div className="w-full h-auto">
+    <div className="w-full h-auto" onClick={() => handleNavigate(`/works/${id}`)}>
       <img className="w-full h-auto rounded-[4px]" src={imageSrc} alt="썸네일 이미지" />
       <div className="w-full flex flex-col mt-[14px] gap-y-[10px]">
         <p className="w-full text-[12px] font-bold text-red-normal">| {teamName}</p>
@@ -28,6 +42,7 @@ const WorksList = () => {
       {PROJECT_LIST.map((item) => (
         <WorksCard
           key={item.id}
+          id={item.id}
           thumbnailImageUrl={item.thumbnailImageUrl}
           teamName={item.teamName}
           title={item.title}
