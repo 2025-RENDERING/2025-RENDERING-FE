@@ -33,7 +33,7 @@ const WorksCard = ({
       <div className="flex-col items-start w-full flex flex-col mt-[14px] gap-y-[10px]">
         <p className="w-full text-left text-[12px] font-bold text-red-normal">| {teamName}</p>
         <h1 className="w-full text-left text-[16px] font-bold text-blue-normal">{title}</h1>
-        <p className="w-full text-left text-text-m-regular text-grey-darkActive">
+        <p className="w-full text-left text-[12px] font-medium text-grey-darkActive">
           {oneLineDescription}
         </p>
       </div>
