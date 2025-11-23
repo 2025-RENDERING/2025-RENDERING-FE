@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import WorksDetailContents from "./components/works-detail/WorksDetailContents";
 import Pagination from "./components/works-detail/Pagination";
 
-const WorksDatailPage = () => {
+const WorksDetailPage = () => {
   const { id } = useParams<{ id: string }>();
 
   return (
@@ -13,4 +13,4 @@ const WorksDatailPage = () => {
   );
 };
 
-export default WorksDatailPage;
+export default WorksDetailPage;
