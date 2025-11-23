@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/navbar";
 import MainPage from "./routes/main";
 import WorksPage from "./routes/works";
+import WorksDetailPage from "./routes/works/detail";
 import PartnersPage from "./routes/partners";
 import GuestbookPage from "./routes/guestbook";
 import ExhibitionPage from "./routes/exhibition";
@@ -12,7 +13,14 @@ import HamburgerMenu from "./components/hamburgerMenu";
 import useLayoutState from "./hooks/useLayoutState";
 
 const App = () => {
-  const { isMainPage, isMenuOpen, mainClassName, containerClassName, handleMenuOpen, handleMenuClose } = useLayoutState();
+  const {
+    isMainPage,
+    isMenuOpen,
+    mainClassName,
+    containerClassName,
+    handleMenuOpen,
+    handleMenuClose,
+  } = useLayoutState();
 
   return (
     <div className={containerClassName}>
@@ -21,6 +29,7 @@ const App = () => {
         <Routes>
           <Route index element={<MainPage />} />
           <Route path="/works" element={<WorksPage />} />
+          <Route path="/works/:id" element={<WorksDetailPage />} />
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/guestbook" element={<GuestbookPage />} />
           <Route path="/exhibition" element={<ExhibitionPage />} />
