@@ -13,17 +13,17 @@ const SearchBar = ({ searchText, setSearchText, setSubmittedText }: SearchBarPro
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex justify-between items-center">
+    <form onSubmit={handleSubmit} className="flex justify-between items-center mr-[8px]">
       <input
         type="text"
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
         placeholder="검색어를 입력하세요."
-        className="w-[232px] h-[36px] py-[10px] px-[16px] rounded-[50px] bg-grey-lightActive bg-grey-dark text-[12px] text-text-m-medium text-grey-dark"
+        className="w-[232px] h-[36px] py-[10px] pl-[16px] px-[40px] rounded-[50px] bg-grey-lightActive bg-grey-dark text-[12px] text-text-m-medium text-grey-dark"
       />
       <SearchIcon
         onClick={() => setSubmittedText(searchText)}
-        className="ml-[-24px] w-[24px] h-[24px] cursor-pointer "
+        className="ml-[-32px] w-[24px] h-[24px] cursor-pointer "
       />
     </form>
   );
