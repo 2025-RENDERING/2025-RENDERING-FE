@@ -56,7 +56,11 @@ const WorksList = ({ submittedText }: WorksListProps) => {
   });
 
   if (filteredProjects.length === 0) {
-    return <p>검색 결과가 없습니다.</p>;
+    return (
+      <p className="w-full text-center text-[14px] font-semibold text-grey-dark">
+        검색 결과가 없습니다.
+      </p>
+    );
   }
 
   return (

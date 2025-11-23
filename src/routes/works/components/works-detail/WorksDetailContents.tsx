@@ -14,7 +14,11 @@ const WorksDetailContents = ({ id }: WorksDetailContentsProps) => {
   };
 
   if (!work) {
-    return <div className="">존재하지 않는 작품입니다.</div>;
+    return (
+      <p className="w-full mt-[200px] mb-[250px] text-center text-[14px] font-semibold text-grey-dark">
+        존재하지 않는 작품입니다.
+      </p>
+    );
   }
 
   const imageSrc = new URL(work.thumbnailImageUrl, import.meta.url).href;
@@ -48,7 +52,8 @@ const WorksDetailContents = ({ id }: WorksDetailContentsProps) => {
         </div>
         {work.members.map((member, index) => (
           <span key={index} className="pr-[5px] text-[14px] font-medium text-grey-darker">
-            | {member}
+            {index !== 0 && " | "}
+            {member}
           </span>
         ))}
       </div>
