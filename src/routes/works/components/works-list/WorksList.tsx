@@ -25,21 +25,43 @@ const WorksCard = ({
   const imageSrc = new URL(thumbnailImageUrl, import.meta.url).href;
 
   return (
-    <div className="w-full h-auto" onClick={() => handleNavigate(`/works/${id}`)}>
+    <button
+      className="w-full h-auto flex flex-col items-start"
+      onClick={() => handleNavigate(`/works/${id}`)}
+    >
       <img className="w-full h-auto rounded-[4px]" src={imageSrc} alt="썸네일 이미지" />
-      <div className="w-full flex flex-col mt-[14px] gap-y-[10px]">
-        <p className="w-full text-[12px] font-bold text-red-normal">| {teamName}</p>
-        <h1 className="w-full text-[16px] font-bold text-blue-normal">{title}</h1>
-        <p className="text-text-m-regular text-grey-darkActive">{oneLineDescription}</p>
+      <div className="flex-col items-start w-full flex flex-col mt-[14px] gap-y-[10px]">
+        <p className="w-full text-left text-[12px] font-bold text-red-normal">| {teamName}</p>
+        <h1 className="w-full text-left text-[16px] font-bold text-blue-normal">{title}</h1>
+        <p className="w-full text-left text-text-m-regular text-grey-darkActive">
+          {oneLineDescription}
+        </p>
       </div>
-    </div>
+    </button>
   );
 };
 
-const WorksList = () => {
+interface WorksListProps {
+  submittedText: string;
+}
+
+const WorksList = ({ submittedText }: WorksListProps) => {
+  const keyword = submittedText.trim().toLowerCase();
+
+  const filteredProjects = PROJECT_LIST.filter((item) => {
+    if (!keyword) return true;
+    return (
+      item.title.toLowerCase().includes(keyword) || item.teamName.toLowerCase().includes(keyword)
+    );
+  });
+
+  if (filteredProjects.length === 0) {
+    return <p>검색 결과가 없습니다.</p>;
+  }
+
   return (
-    <>
-      {PROJECT_LIST.map((item) => (
+    <div className="w-full grid grid-cols-2 gap-6">
+      {filteredProjects.map((item) => (
         <WorksCard
           key={item.id}
           id={item.id}
@@ -49,7 +71,7 @@ const WorksList = () => {
           oneLineDescription={item.oneLineDescription}
         />
       ))}
-    </>
+    </div>
   );
 };
 
