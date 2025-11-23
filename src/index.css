@@ -49,3 +49,19 @@
     scroll-behavior: smooth;
   }
 }
+
+@layer utilities {
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll-left {
+    animation: scroll-left 8s linear infinite;
+    display: flex;
+  }
+}
