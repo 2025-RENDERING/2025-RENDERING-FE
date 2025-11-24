@@ -6,7 +6,7 @@ const GuestbookCard: React.FC<GuestbookCardProps> = ({ entry }) => {
   return (
       <div className="flex flex-col">
         <div
-          className="max-w-[131px] flex min-h-[22px] items-center py-[3px] px-[12px] text-[12px] font-bold text-grey-lightActive bg-red-normal"
+          className="max-w-[131px] max-[352px]:max-w-[178px] flex min-h-[22px] items-center py-[3px] px-[12px] text-[12px] font-bold text-grey-lightActive bg-red-normal"
         >
           {entry.author}
         </div>
