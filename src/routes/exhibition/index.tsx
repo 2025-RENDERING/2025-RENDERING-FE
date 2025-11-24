@@ -29,25 +29,13 @@ const ExhibitionPage = () => {
   const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsClicked(true);
-      window.removeEventListener("scroll", handleScroll);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    setIsClicked(true);
   }, []);
 
   return (
     <>
       {/* 모바일 레이아웃 */}
-      <section
-        onClick={() => setIsClicked((prev) => !prev)}
-        className="md:hidden relative z-20 p-[24px] flex flex-col items-center mt-[64px]"
-      >
+      <section className="md:hidden relative z-20 p-[24px] flex flex-col items-center mt-[64px]">
         <div
           className={`${
             isClicked ? "pt-[71px]" : "pt-[50px]"
