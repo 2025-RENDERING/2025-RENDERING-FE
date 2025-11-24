@@ -34,7 +34,7 @@ const WorksDetailContents = ({ id }: WorksDetailContentsProps) => {
       </p>
 
       {/* 키워드 */}
-      <div className="mb-[48px] flex flex-wrap gap-[11px] text-[12px] font-medium">
+      <div className="mb-[48px] flex flex-wrap gap-[11px] text-[12px] font-medium text-blue-normal">
         {work.tags.map((tag, index) => (
           <p
             key={index}

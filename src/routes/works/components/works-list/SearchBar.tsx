@@ -19,7 +19,7 @@ const SearchBar = ({ searchText, setSearchText, setSubmittedText }: SearchBarPro
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
         placeholder="검색어를 입력하세요."
-        className="w-[232px] h-[36px] py-[10px] pl-[16px] px-[40px] rounded-[50px] bg-grey-lightActive bg-grey-dark text-[12px] text-text-m-medium text-grey-dark"
+        className="w-[232px] h-[36px] py-[10px] pl-[16px] px-[40px] rounded-[50px] outline-none bg-grey-lightActive bg-grey-dark text-[12px] text-text-m-medium text-grey-dark"
       />
       <SearchIcon
         onClick={() => setSubmittedText(searchText)}
