@@ -10,6 +10,7 @@ import BoothPage from "./routes/booth";
 import NotFoundPage from "./routes/notFound";
 import Footer from "./components/footer";
 import HamburgerMenu from "./components/hamburgerMenu";
+import ScrollToTop from "./components/ScrollToTop";
 import useLayoutState from "./hooks/useLayoutState";
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
 
       {!isMainPage && !isNotFoundPage && <Footer />}
       {!isMainPage && !isNotFoundPage && <HamburgerMenu open={isMenuOpen} onClose={handleMenuClose} />}
+      {!isMainPage && !isNotFoundPage && <ScrollToTop />}
     </div>
   );
 };

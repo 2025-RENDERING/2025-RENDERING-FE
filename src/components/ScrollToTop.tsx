@@ -1,19 +1,41 @@
 import { useState, useEffect } from "react";
-
+import floatingBtn from "@/assets/floatingBtn.svg";
 const ScrollToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isAtBottom, setIsAtBottom] = useState(false);
+  const [footerHeight, setFooterHeight] = useState(0);
 
   useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (footer) {
+      setFooterHeight(footer.offsetHeight);
+    }
+
     const toggleVisibility = () => {
       if (window.pageYOffset > 300) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
       }
+
+      const scrollHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const clientHeight = window.innerHeight;
+      const isBottom = scrollTop + clientHeight >= scrollHeight - 10;
+
+      setIsAtBottom(isBottom);
+
+      if (footer) {
+        setFooterHeight(footer.offsetHeight);
+      }
     };
 
     window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    window.addEventListener("resize", toggleVisibility);
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+      window.removeEventListener("resize", toggleVisibility);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -25,15 +47,18 @@ const ScrollToTop: React.FC = () => {
 
   if (!isVisible) return null;
 
+  const spacing = 16;
+
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-8 right-8 w-12 h-12 bg-red-normal rounded-full flex items-center justify-center shadow-lg hover:bg-red-normalHover transition-colors z-50"
+      className="fixed right-8 w-[44px] h-[44px] bg-red-normal rounded-full flex items-center justify-center shadow-lg hover:bg-red-normalHover transition-all duration-300 z-50"
+      style={{
+        bottom: isAtBottom ? `${footerHeight + spacing}px` : "32px",
+      }}
       aria-label="맨 위로 스크롤"
     >
-      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-      </svg>
+      <img src={floatingBtn} alt="floatingBtn" className="w-6 h-6 text-white" />
     </button>
   );
 };
