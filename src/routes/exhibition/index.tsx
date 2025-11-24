@@ -35,7 +35,7 @@ const ExhibitionPage = () => {
   return (
     <>
       {/* 모바일 레이아웃 */}
-      <section className="md:hidden relative z-20 p-[24px] flex flex-col items-center mt-[64px]">
+      <section className="md:hidden relative z-20 p-[24px] flex flex-col items-center mt-[64px] overflow-x-hidden">
         <div
           className={`${
             isClicked ? "pt-[71px]" : "pt-[50px]"
@@ -257,7 +257,7 @@ const ExhibitionPage = () => {
 
       {/* 모바일 배경 */}
       <div
-        className="md:hidden fixed inset-0 bg-cover bg-center z-10 h-full"
+        className="md:hidden fixed inset-0 bg-cover bg-center z-10 h-full w-full"
         style={{ backgroundImage: `url(${mainBG})` }}
       ></div>
     </>
