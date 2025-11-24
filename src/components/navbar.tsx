@@ -52,8 +52,7 @@ const Navbar = ({ onMenuOpen }: NavbarProps) => {
 
   const getBackgroundClass = () => {
     if (isExhibition) {
-      // 데스크탑에서는 항상 배경색 적용, 모바일에서는 스크롤에 따라
-      return isScrolled ? "bg-blue-normal/95" : "bg-blue-normal/5 md:bg-blue-normal/95";
+      return isScrolled ? "bg-blue-normal/95" : "bg-blue-normal/95";
     }
     return "bg-grey-normal";
   };
