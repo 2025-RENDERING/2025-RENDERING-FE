@@ -60,76 +60,76 @@ const ExhibitionPage = () => {
 
         <Animate
           Icon={Left1}
-          position={{ top: "70px", left: "-24px" }}
+          position={{ top: "70px", left: "0px" }}
           isClicked={isClicked}
           exit="-translate-x-20 -translate-y-20"
         />
 
         <Animate
           Icon={Left2}
-          position={{ top: "340px", left: "-24px" }}
+          position={{ top: "340px", left: "0px" }}
           isClicked={isClicked}
           exit="-translate-x-16"
         />
 
         <Animate
           Icon={Left3}
-          position={{ top: "633px", left: "-24px" }}
+          position={{ top: "633px", left: "0px" }}
           isClicked={isClicked}
           exit="-translate-x-full"
         />
 
         <Animate
           Icon={Left4}
-          position={{ top: "615px", left: "-24px" }}
+          position={{ top: "615px", left: "0px" }}
           isClicked={isClicked}
           exit="-translate-x-full translate-y-40"
         />
 
         <Animate
           Icon={Left5}
-          position={{ top: "1002px", left: "-24px" }}
+          position={{ top: "1002px", left: "0px" }}
           isClicked={isClicked}
           exit="-translate-x-full translate-y-40"
         />
 
         <Animate
           Icon={Left6}
-          position={{ top: "1063px", left: "-24px" }}
+          position={{ top: "1063px", left: "0px" }}
           isClicked={isClicked}
           exit="-translate-x-full translate-y-40"
         />
 
         <Animate
           Icon={Left7}
-          position={{ top: "1239px", left: "-24px" }}
+          position={{ top: "1239px", left: "0px" }}
           isClicked={isClicked}
         />
 
         <Animate
           Icon={Right1}
-          position={{ top: "131px", right: "-24px" }}
+          position={{ top: "131px", right: "0px" }}
           isClicked={isClicked}
           exit="translate-x-16 -translate-y-16"
         />
 
         <Animate
           Icon={Right2}
-          position={{ top: "434px", right: "-24px" }}
+          position={{ top: "434px", right: "0px" }}
           isClicked={isClicked}
           exit="translate-x-28"
         />
 
         <Animate
           Icon={Right3}
-          position={{ top: "777px", right: "-24px" }}
+          position={{ top: "777px", right: "0px" }}
           isClicked={isClicked}
           exit="translate-x-full"
         />
 
         <Animate
           Icon={Right4}
-          position={{ top: "1592px", right: "-24px" }}
+          position={{ top: "1592px", right: "0px" }}
           isClicked={isClicked}
         />
 
