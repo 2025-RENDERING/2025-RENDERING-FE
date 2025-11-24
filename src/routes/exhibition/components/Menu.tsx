@@ -16,7 +16,7 @@ const Menu = () => {
       id: 3,
       icon: <InstaIcon className="shrink-0" />,
       label: "전시회 인스타그램",
-      to: "https://www.instagram.com/dswu_itmedia_24/",
+      to: "https://www.instagram.com/dswu_itmedia_25/",
     },
   ];
 
