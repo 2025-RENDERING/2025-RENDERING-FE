@@ -16,7 +16,7 @@ const Menu = () => {
       id: 3,
       icon: <InstaIcon className="shrink-0" />,
       label: "전시회 인스타그램",
-      to: "https://www.instagram.com/dswu_itmedia_24/",
+      to: "https://www.instagram.com/dswu_itmedia_25/",
     },
   ];
 
@@ -41,12 +41,11 @@ const Menu = () => {
     if (!window.Kakao) return;
 
     window.Kakao.Share.sendDefault({
-      objectType: "location",
-      address: "서울 도봉구 마들로 13길 84 서울창업허브 창동 B1",
-      addressTitle: "서울창업허브",
+      objectType: "feed",
       content: {
-        title: "RENDERING",
-        description: "덕성여자대학교 IT MEDIA ENGINERRING 2025 제 13회 졸업전시회",
+        title: "Welcome to RENDERING",
+        description:
+          "2025 덕성여자대학교 IT미디어공학전공 제13회 졸업전시회: RENDERING\n12월 17일(수) - 12월 19일(금)",
         imageUrl: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOY6qyYpfJKENHGdKTvTjGF3FoRg7-JnFNTw&s`,
         link: {
           mobileWebUrl: url,
@@ -55,7 +54,7 @@ const Menu = () => {
       },
       buttons: [
         {
-          title: "웹으로 보기",
+          title: "Exhibition Website",
           link: {
             mobileWebUrl: url,
             webUrl: url,
@@ -83,7 +82,9 @@ const Menu = () => {
               </a>
             )}
           </div>
-          <p className="text-grey-normal text-xs-medium leading-[16px]">{menu.label}</p>
+          <p className="text-grey-normal text-xs-medium leading-[16px] max-[395px]:text-[11px] max-[364px]:text-[10px] text-center">
+            {menu.label}
+          </p>
         </div>
       ))}
     </div>

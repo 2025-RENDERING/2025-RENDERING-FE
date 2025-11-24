@@ -21,8 +21,12 @@ const Intro = () => {
           <br />
           이 모든 배움의 조각들이 층층이 쌓여
           <br />
-          <span className="text-s-bold text-red-normal">마침내 RENDERING 99%</span>에
-          도달했습니다.
+          마침내
+          <span className="text-s-bold max-[395px]:text-[13px] text-red-normal">
+            {" "}
+            RENDERING 99%
+          </span>
+          에 도달했습니다.
         </p>
 
         <br />
