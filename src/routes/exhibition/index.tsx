@@ -12,17 +12,17 @@ import LogoIcon from "@/assets/rendering-logo.png";
 import LineIcon from "@/assets/lineIcon.svg";
 import LineOrangeIcon from "@/assets/lineOrangeIcon.svg";
 
-import Left1 from "@/assets/animation-left1-fruit.svg?react";
-import Left2 from "@/assets/animation-left2-art.svg?react";
-import Left3 from "@/assets/animation-left3-text.svg?react";
-import Left4 from "@/assets/animation-left4.svg?react";
-import Left5 from "@/assets/animation-left5-art.svg?react";
-import Left6 from "@/assets/animation-left6-text.svg?react";
-import Left7 from "@/assets/animation-left7-line.svg?react";
-import Right1 from "@/assets/animation-right1-art.svg?react";
-import Right2 from "@/assets/animation-right2-card.svg?react";
-import Right3 from "@/assets/animation-right3-sound.svg?react";
-import Right4 from "@/assets/animation-right4-line.svg?react";
+import Left1 from "@/assets/animation-left1-fruit.svg";
+import Left2 from "@/assets/animation-left2-art.svg";
+import Left3 from "@/assets/animation-left3-text.svg";
+import Left4 from "@/assets/animation-left4.svg";
+import Left5 from "@/assets/animation-left5-art.svg";
+import Left6 from "@/assets/animation-left6-text.svg";
+import Left7 from "@/assets/animation-left7-line.svg";
+import Right1 from "@/assets/animation-right1-art.svg";
+import Right2 from "@/assets/animation-right2-card.svg";
+import Right3 from "@/assets/animation-right3-sound.svg";
+import Right4 from "@/assets/animation-right4-line.svg";
 import Animate from "./components/Animate";
 
 const ExhibitionPage = () => {
@@ -46,7 +46,7 @@ const ExhibitionPage = () => {
       {/* 모바일 레이아웃 */}
       <section
         onClick={() => setIsClicked((prev) => !prev)}
-        className="md:hidden relative z-20 p-[24px] flex flex-col items-center"
+        className="md:hidden relative z-20 p-[24px] flex flex-col items-center mt-[64px]"
       >
         <div
           className={`${

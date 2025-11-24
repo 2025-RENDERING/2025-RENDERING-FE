@@ -1,5 +1,5 @@
 interface AnimateProps {
-  Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  Icon: string;
   position?: {
     top?: string;
     left?: string;
@@ -11,14 +11,20 @@ interface AnimateProps {
 
 const Animate = ({ Icon, position, exit, isClicked }: AnimateProps) => {
   return (
-    <Icon
-      className={`absolute ${position?.top ? `top-[${position.top}]` : ""}
-      ${position?.left ? `left-[${position.left}]` : ""}
-      ${position?.right ? `right-[${position.right}]` : ""}
-      transition-all duration-700 ease-out transform
-      ${isClicked ? "opacity-100 translate-x-0 translate-y-0" : `${exit} opacity-0`}
+    <div
+      style={{
+        top: position?.top,
+        left: position?.left,
+        right: position?.right,
+      }}
+      className={`
+        absolute z-30
+        transition-all duration-700 ease-out transform
+        ${isClicked ? "opacity-100 translate-x-0 translate-y-0" : `${exit} opacity-0`}
       `}
-    ></Icon>
+    >
+      <img src={Icon} alt="icon" className="w-full h-full" />
+    </div>
   );
 };
 
