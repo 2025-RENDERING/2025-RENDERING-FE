@@ -11,16 +11,16 @@ const Pagination = ({ id }: PaginationProps) => {
 
   const handleMoveToPrevPage = () => {
     if (id < 2) {
-      navigate(`/works/23`);
+      navigate(`/works/23`, { replace: true });
     } else {
-      navigate(`/works/${id - 1}`);
+      navigate(`/works/${id - 1}`, { replace: true });
     }
   };
   const handleMoveToNextPage = () => {
     if (id > 22) {
-      navigate(`/works/1`);
+      navigate(`/works/1`, { replace: true });
     } else {
-      navigate(`/works/${id + 1}`);
+      navigate(`/works/${id + 1}`, { replace: true });
     }
   };
 
@@ -31,13 +31,13 @@ const Pagination = ({ id }: PaginationProps) => {
         onClick={handleMoveToPrevPage}
       >
         <PrevIcon className="w-[12px] h-[12px]" />
-        <p className="text-[12px] text-text-m-bold text-red-normal50">이전</p>
+        <p className="text-[12px] font-bold text-red-normal50">이전</p>
       </button>
       <button
         className="flex items-center py-[12px] pl-[12px] gap-[6px]"
         onClick={handleMoveToNextPage}
       >
-        <p className="text-[12px] text-text-m-bold text-red-normal50">다음</p>
+        <p className="text-[12px] font-bold text-red-normal50">다음</p>
         <NextIcon className="w-[12px] h-[12px]" />
       </button>
     </div>

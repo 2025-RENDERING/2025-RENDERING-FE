@@ -14,6 +14,7 @@ const Navbar = ({ onMenuOpen }: NavbarProps) => {
   const title = getPageTitle(location.pathname);
   const isRoot = location.pathname === "/";
   const isExhibition = location.pathname.startsWith("/exhibition");
+  const isWorksDetail = location.pathname.startsWith("/works/") && location.pathname !== "/works";
   const textColorClass = isExhibition ? "text-white" : "text-grey-darker";
   const iconStroke = isExhibition ? "#FFFFFF" : "#464443";
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,7 +41,11 @@ const Navbar = ({ onMenuOpen }: NavbarProps) => {
   }, []);
 
   const handleBack = () => {
-    if (!isRoot) {
+    if (isRoot) return;
+
+    if (isWorksDetail) {
+      navigate("/works", { replace: true });
+    } else {
       navigate(-1);
     }
   };

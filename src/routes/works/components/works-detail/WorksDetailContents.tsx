@@ -34,7 +34,7 @@ const WorksDetailContents = ({ id }: WorksDetailContentsProps) => {
       </p>
 
       {/* 키워드 */}
-      <div className="mb-[48px] flex flex-wrap gap-[11px] text-[12px] font-medium">
+      <div className="mb-[48px] flex flex-wrap gap-[11px] text-[12px] font-medium text-blue-normal">
         {work.tags.map((tag, index) => (
           <p
             key={index}
@@ -58,20 +58,20 @@ const WorksDetailContents = ({ id }: WorksDetailContentsProps) => {
         ))}
       </div>
 
-      {/* 작품 목록 */}
+      {/* 작품 소개 */}
       <div className="w-full pb-[36px] mb-[54px] border-b-[1px] border-red-lightActive">
         <div className="flex justify-center w-[84px] mb-[22px] py-[2px] text-[14px] font-medium text-grey-light bg-red-normal">
-          작품 목록
+          작품 소개
         </div>
         <p className="pr-[5px] text-[14px] font-medium text-grey-darker">
           {work.projectDescription}
         </p>
       </div>
 
-      {/* 작품 설명 */}
+      {/* 기획 의도 */}
       <div className="w-full pb-[36px] mb-[54px] border-b-[1px] border-red-lightActive">
         <div className="flex justify-center w-[84px] mb-[22px] py-[2px] text-[14px] font-medium text-grey-light bg-red-normal">
-          작품 소개
+          기획 의도
         </div>
         <p className="pr-[5px] text-[14px] font-medium text-grey-darker">{work.projectIntent}</p>
       </div>
