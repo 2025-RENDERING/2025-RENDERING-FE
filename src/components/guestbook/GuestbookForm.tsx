@@ -25,10 +25,10 @@ const GuestbookForm: React.FC<GuestbookFormProps> = ({ onSuccess }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-[354px] mx-auto space-y-3">
+    <form onSubmit={handleSubmit} className="w-full max-w-[354px] mx-auto mt-[55px]">
       <div>
         <input
-          className="w-[172px] rounded-none border-none px-4 py-3 bg-red-normal text-[14px] font-medium text-red-lightActive outline-none placeholder:text-red-lightActive"
+          className="w-[172px] h-[32px] rounded-none border-none px-[14px] py-[1px] bg-red-normal text-[14px] text-grey-lightActive font-medium outline-none placeholder:text-red-lightActive"
           placeholder="작성자 (10자 이내)"
           maxLength={MAX_AUTHOR}
           value={author}
@@ -38,7 +38,7 @@ const GuestbookForm: React.FC<GuestbookFormProps> = ({ onSuccess }) => {
 
       <div className='max-w-[354px]'>
         <textarea
-          className="h-[80px] w-full resize-none rounded-none border border-red-normal bg-grey-normal p-[14px] text-[14px] text-grey-dark placeholder:text-grey-dark outline-none scrollbar-hide"
+          className="h-[80px] w-full resize-none rounded-none border border-red-normal bg-grey-normal p-[14px] text-[14px] placeholder:text-grey-dark outline-none scrollbar-hide"
           placeholder="방명록을 남겨 주세요.(100자 이내)"
           maxLength={MAX_MESSAGE}
           value={message}
