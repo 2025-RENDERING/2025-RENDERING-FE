@@ -14,10 +14,12 @@ const PartnersPage = () => {
 
   return (
     <div className="w-full">
-      <ScrollingLogos logos={scrollingLogos} />
+      <div className="pt-20 md:pt-0">
+        <ScrollingLogos logos={scrollingLogos} />
+      </div>
 
       {/* 파트너 섹션들 */}
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-[24px] pb-[24px] md:pt-[24px]">
         <PartnerSection
           title="inclear."
           titleImage={inclearLogo}

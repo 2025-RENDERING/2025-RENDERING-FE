@@ -15,8 +15,8 @@ const useLayoutState = () => {
     if (isNotFoundPage) {
       return "w-full";
     }
-    const base = "mx-auto w-full max-w-6xl px-[24px] pb-10";
-    const layout = isMainPage ? "" : "pt-16 bg-grey-normal";
+    const base = "mx-auto w-full max-w-6xl";
+    const layout = isMainPage ? "" : "bg-grey-normal";
     const overlayState = isMenuOpen ? "pointer-events-none blur-sm" : "";
     return [base, layout, overlayState].filter(Boolean).join(" ");
   }, [isMainPage, isNotFoundPage, isMenuOpen]);

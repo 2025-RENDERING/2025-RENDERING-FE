@@ -20,11 +20,23 @@ const Navbar = ({ onMenuOpen }: NavbarProps) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+      // 데스크탑에서는 컨테이너 내부 스크롤, 모바일에서는 window 스크롤
+      const scrollContainer = document.querySelector(".w-\\[430px\\]");
+      if (scrollContainer) {
+        setIsScrolled(scrollContainer.scrollTop > 0);
+      } else {
+        setIsScrolled(window.scrollY > 0);
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const scrollContainer = document.querySelector(".w-\\[430px\\]");
+    if (scrollContainer) {
+      scrollContainer.addEventListener("scroll", handleScroll);
+      return () => scrollContainer.removeEventListener("scroll", handleScroll);
+    } else {
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
   }, []);
 
   const handleBack = () => {
@@ -35,14 +47,15 @@ const Navbar = ({ onMenuOpen }: NavbarProps) => {
 
   const getBackgroundClass = () => {
     if (isExhibition) {
-      return isScrolled ? "bg-blue-normal/95" : "bg-blue-normal/5";
+      // 데스크탑에서는 항상 배경색 적용, 모바일에서는 스크롤에 따라
+      return isScrolled ? "bg-blue-normal/95" : "bg-blue-normal/5 md:bg-blue-normal/95";
     }
     return "bg-grey-normal";
   };
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 flex h-16 items-center px-[24px] shadow-[0_4px_15px_0_rgba(216,193,193,0.25)] ${getBackgroundClass()} ${textColorClass}`}
+      className={`fixed inset-x-0 top-0 z-50 flex h-16 items-center px-[24px] shadow-[0_4px_15px_0_rgba(216,193,193,0.25)] md:sticky md:inset-x-auto md:w-[430px] md:shadow-none ${getBackgroundClass()} ${textColorClass}`}
     >
       <button
         type="button"
