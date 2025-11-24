@@ -142,7 +142,7 @@ const ExhibitionPage = () => {
       {/* 데스크탑 레이아웃 */}
       <section
         onClick={() => setIsClicked((prev) => !prev)}
-        className="hidden md:flex md:flex-col md:items-center md:relative md:z-10 md:w-full md:min-h-[932px]"
+        className="hidden md:flex md:flex-col md:items-center md:relative md:z-10 md:w-full md:min-h-[932px] overflow-x-hidden"
       >
         {/* 데스크탑 배경 */}
         <div
