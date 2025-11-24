@@ -41,9 +41,10 @@ const GuestbookPage: React.FC = () => {
 
   return (
     <main className="flex justify-center items-center px-[24.5px]">
-      <div className="w-full md:w-[430px] lg:w-[430px] flex flex-col mb-[78px] pt-[64px]">
-        <GuestbookForm onSuccess={handleCreateSuccess} />
-
+      <div className="w-full md:w-[430px] lg:w-[430px] flex flex-col mb-[78px] pt-[64px] md:pt-0">
+        <div className="flex w-full justify-center">
+          <GuestbookForm onSuccess={handleCreateSuccess} />
+        </div>
         <section className="mt-[64px] mb-[80px] text-center text-[14px] leading-[22px] text-blue-normal font-semibold">
           열심히 달려온 IT미디어공학전 학우분들을 위해
           <br />
