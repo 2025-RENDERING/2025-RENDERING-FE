@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Layout from "./Layout";
 
 import SubwayIcon from "@/assets/subwayIcon.svg?react";
@@ -23,6 +23,8 @@ const Way = () => {
     },
   ];
 
+  const mapRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const script = document.createElement("script");
     script.async = false;
@@ -31,23 +33,36 @@ const Way = () => {
     }&autoload=false`;
     document.head.appendChild(script);
 
+    const tryCreateMap = () => {
+      const container = mapRef.current;
+      if (!container) return false;
+      if (container.offsetWidth === 0 || container.offsetHeight === 0) return false;
+
+      const markerPos = new window.kakao.maps.LatLng(37.6553762, 127.0480035);
+      const marker = { position: markerPos };
+      const options = {
+        center: markerPos,
+        level: 3,
+        marker,
+      };
+
+      new window.kakao.maps.StaticMap(container, options);
+      return true;
+    };
+
     script.onload = () => {
       window.kakao.maps.load(() => {
-        const container = document.getElementById("map");
-        if (!container) return;
+        // 즉시 생성 시도
+        if (!tryCreateMap()) {
+          // 실패 -> ResizeObserver
+          const container = mapRef.current;
+          if (!container) return;
 
-        const markerPos = new window.kakao.maps.LatLng(37.6553762, 127.0480035); // 마커 위치
-        const marker = {
-          position: markerPos,
-        }; // 지도에 표시할 마커
-
-        const options = {
-          center: new window.kakao.maps.LatLng(37.6553762, 127.0480035),
-          level: 3,
-          marker: marker,
-        };
-
-        new window.kakao.maps.StaticMap(container, options); // 지도 생성
+          const observer = new ResizeObserver(() => {
+            if (tryCreateMap()) observer.disconnect();
+          });
+          observer.observe(container);
+        }
       });
     };
 
@@ -66,7 +81,7 @@ const Way = () => {
             <p>서울창업허브 창동 B1</p>
           </div>
 
-          <div id="map" className="w-full h-[257px]"></div>
+          <div id="map" ref={mapRef} className="w-full h-[257px]"></div>
 
           <div className="flex flex-col gap-[16px]">
             {TRANSPORTATION.map((t) => (
