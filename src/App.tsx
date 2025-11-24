@@ -13,18 +13,11 @@ import HamburgerMenu from "./components/hamburgerMenu";
 import useLayoutState from "./hooks/useLayoutState";
 
 const App = () => {
-  const {
-    isMainPage,
-    isMenuOpen,
-    mainClassName,
-    containerClassName,
-    handleMenuOpen,
-    handleMenuClose,
-  } = useLayoutState();
+  const { isMainPage, isNotFoundPage, isMenuOpen, mainClassName, containerClassName, handleMenuOpen, handleMenuClose } = useLayoutState();
 
   return (
     <div className={containerClassName}>
-      {!isMainPage && <Navbar onMenuOpen={handleMenuOpen} />}
+      {!isMainPage && !isNotFoundPage && <Navbar onMenuOpen={handleMenuOpen} />}
       <main className={mainClassName} aria-hidden={isMenuOpen}>
         <Routes>
           <Route index element={<MainPage />} />
@@ -37,8 +30,9 @@ const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
-      {!isMainPage && <Footer />}
-      {!isMainPage && <HamburgerMenu open={isMenuOpen} onClose={handleMenuClose} />}
+
+      {!isMainPage && !isNotFoundPage && <Footer />}
+      {!isMainPage && !isNotFoundPage && <HamburgerMenu open={isMenuOpen} onClose={handleMenuClose} />}
     </div>
   );
 };
