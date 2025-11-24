@@ -13,17 +13,26 @@ const Navbar = ({ onMenuOpen }: NavbarProps) => {
   const title = getPageTitle(location.pathname);
   const isRoot = location.pathname === "/";
   const isExhibition = location.pathname.startsWith("/exhibition");
+  const isWorksDetail = location.pathname.startsWith("/works/") && location.pathname !== "/works";
   const textColorClass = isExhibition ? "text-white" : "text-grey-darker";
   const iconStroke = isExhibition ? "#FFFFFF" : "#464443";
 
   const handleBack = () => {
-    if (!isRoot) {
+    if (isRoot) return;
+
+    if (isWorksDetail) {
+      navigate("/works", { replace: true });
+    } else {
       navigate(-1);
     }
   };
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 flex h-16 items-center px-[24px] ${isExhibition ? "bg-blue-normal/5" : "bg-grey-normal"} ${textColorClass}`}>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 flex h-16 items-center px-[24px] ${
+        isExhibition ? "bg-blue-normal/5" : "bg-grey-normal"
+      } ${textColorClass}`}
+    >
       <button
         type="button"
         onClick={handleBack}

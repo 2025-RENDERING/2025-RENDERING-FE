@@ -11,16 +11,16 @@ const Pagination = ({ id }: PaginationProps) => {
 
   const handleMoveToPrevPage = () => {
     if (id < 2) {
-      navigate(`/works/23`);
+      navigate(`/works/23`, { replace: true });
     } else {
-      navigate(`/works/${id - 1}`);
+      navigate(`/works/${id - 1}`, { replace: true });
     }
   };
   const handleMoveToNextPage = () => {
     if (id > 22) {
-      navigate(`/works/1`);
+      navigate(`/works/1`, { replace: true });
     } else {
-      navigate(`/works/${id + 1}`);
+      navigate(`/works/${id + 1}`, { replace: true });
     }
   };
 

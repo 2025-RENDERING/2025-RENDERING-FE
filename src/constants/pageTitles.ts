@@ -1,6 +1,7 @@
 const pageTitles: Record<string, string> = {
   "/": "메인",
   "/works": "작품 목록",
+  "/works/": "작품 목록",
   "/booth": "부스 배치도",
   "/guestbook": "방명록",
   "/partners": "협찬/제휴 소개",
