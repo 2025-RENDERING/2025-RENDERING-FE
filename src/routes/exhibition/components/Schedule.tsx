@@ -15,7 +15,7 @@ const Schedule = () => {
             {SCHEDULES.map((schedule) => (
               <div
                 key={schedule.id}
-                className="max-w-[382px] flex justify-between w-full border border-red-normal bg-[rgba(244,198,185,0.1)] py-[7px] px-[48px] text-grey-normal text-s-bold"
+                className="max-w-[382px] h-[47px] flex justify-between items-center w-full border border-red-normal bg-[rgba(244,198,185,0.1)] py-[7px] px-[48px] text-grey-normal text-s-bold"
               >
                 <p>{schedule.date}</p>
                 <p>{schedule.time}</p>
