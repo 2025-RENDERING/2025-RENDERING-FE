@@ -23,7 +23,11 @@ const Navbar = ({ onMenuOpen }: NavbarProps) => {
   };
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 flex h-16 items-center px-[24px] ${isExhibition ? "bg-blue-normal/5" : "bg-grey-normal"} ${textColorClass}`}>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 flex h-16 items-center px-[24px] shadow-[0_4px_15px_0_rgba(216,193,193,0.25)] ${
+        isExhibition ? "bg-blue-normal/5" : "bg-grey-normal"
+      } ${textColorClass}`}
+    >
       <button
         type="button"
         onClick={handleBack}
