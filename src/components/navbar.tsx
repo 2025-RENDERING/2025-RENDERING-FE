@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getPageTitle } from "../constants/pageTitles";
 import BackIcon from "./icons/back-icon";
@@ -15,6 +16,16 @@ const Navbar = ({ onMenuOpen }: NavbarProps) => {
   const isExhibition = location.pathname.startsWith("/exhibition");
   const textColorClass = isExhibition ? "text-white" : "text-grey-darker";
   const iconStroke = isExhibition ? "#FFFFFF" : "#464443";
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleBack = () => {
     if (!isRoot) {
@@ -22,11 +33,16 @@ const Navbar = ({ onMenuOpen }: NavbarProps) => {
     }
   };
 
+  const getBackgroundClass = () => {
+    if (isExhibition) {
+      return isScrolled ? "bg-blue-normal/95" : "bg-blue-normal/5";
+    }
+    return "bg-grey-normal";
+  };
+
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 flex h-16 items-center px-[24px] shadow-[0_4px_15px_0_rgba(216,193,193,0.25)] ${
-        isExhibition ? "bg-blue-normal/5" : "bg-grey-normal"
-      } ${textColorClass}`}
+      className={`fixed inset-x-0 top-0 z-50 flex h-16 items-center px-[24px] shadow-[0_4px_15px_0_rgba(216,193,193,0.25)] ${getBackgroundClass()} ${textColorClass}`}
     >
       <button
         type="button"
