@@ -28,7 +28,7 @@ const Way = () => {
     script.async = false;
     script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${
       import.meta.env.VITE_KAKAO_JAVASCRIPT_KEY
-    }&autoload=false&libraries=services`;
+    }&autoload=false`;
     document.head.appendChild(script);
 
     script.onload = () => {
