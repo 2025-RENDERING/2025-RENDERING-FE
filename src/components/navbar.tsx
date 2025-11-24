@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getPageTitle } from "../constants/pageTitles";
 import BackIcon from "./icons/back-icon";
@@ -16,6 +17,28 @@ const Navbar = ({ onMenuOpen }: NavbarProps) => {
   const isWorksDetail = location.pathname.startsWith("/works/") && location.pathname !== "/works";
   const textColorClass = isExhibition ? "text-white" : "text-grey-darker";
   const iconStroke = isExhibition ? "#FFFFFF" : "#464443";
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // 데스크탑에서는 컨테이너 내부 스크롤, 모바일에서는 window 스크롤
+      const scrollContainer = document.querySelector(".w-\\[430px\\]");
+      if (scrollContainer) {
+        setIsScrolled(scrollContainer.scrollTop > 0);
+      } else {
+        setIsScrolled(window.scrollY > 0);
+      }
+    };
+
+    const scrollContainer = document.querySelector(".w-\\[430px\\]");
+    if (scrollContainer) {
+      scrollContainer.addEventListener("scroll", handleScroll);
+      return () => scrollContainer.removeEventListener("scroll", handleScroll);
+    } else {
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
+  }, []);
 
   const handleBack = () => {
     if (isRoot) return;
@@ -27,11 +50,16 @@ const Navbar = ({ onMenuOpen }: NavbarProps) => {
     }
   };
 
+  const getBackgroundClass = () => {
+    if (isExhibition) {
+      return isScrolled ? "bg-blue-normal/95" : "bg-blue-normal/95";
+    }
+    return "bg-grey-normal";
+  };
+
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 flex h-16 items-center px-[24px] ${
-        isExhibition ? "bg-blue-normal/5" : "bg-grey-normal"
-      } ${textColorClass}`}
+      className={`fixed inset-x-0 top-0 z-50 flex h-16 items-center px-[24px] shadow-[0_4px_15px_0_rgba(216,193,193,0.25)] md:sticky md:inset-x-auto md:w-[430px] md:shadow-none ${getBackgroundClass()} ${textColorClass}`}
     >
       <button
         type="button"

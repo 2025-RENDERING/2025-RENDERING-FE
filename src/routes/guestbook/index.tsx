@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import GuestbookForm from '@/components/guestbook/GuestbookForm';
-import GuestbookList from '@/components/guestbook/GuestbookList';
-import Pagination from '@/components/guestbook/Pagination';
-import { fetchGuestbookPage } from '@/service/api';
-import { type GuestbookEntry } from '@/types/guestbook/guestbookApi';
+import React, { useEffect, useState } from "react";
+import GuestbookForm from "@/components/guestbook/GuestbookForm";
+import GuestbookList from "@/components/guestbook/GuestbookList";
+import Pagination from "@/components/guestbook/Pagination";
+import { fetchGuestbookPage } from "@/service/api";
+import { type GuestbookEntry } from "@/types/guestbook/guestbookApi";
 
-import lineIcon from '@/assets/lineIcon.svg';
+import lineIcon from "@/assets/lineIcon.svg";
 
 const PAGE_SIZE = 10;
 
@@ -40,23 +40,21 @@ const GuestbookPage: React.FC = () => {
   };
 
   return (
-    <main className='flex justify-center items-center'>
-      <div className="w-full md:w-[430px] lg:w-[430px] flex flex-col pb-[38px] pt-[55px]">
-
-      <GuestbookForm onSuccess={handleCreateSuccess} />
+    <main className="flex justify-center items-center">
+      <div className="w-full md:w-[430px] lg:w-[430px] flex flex-col pb-[38px] pt-20 md:pt-[55px]">
+        <GuestbookForm onSuccess={handleCreateSuccess} />
 
         <section className="mt-[64px] mb-[80px] text-center text-[14px] leading-[22px] text-blue-normal font-semibold">
-           열심히 달려온 IT미디어공학전 학우분들을 위해<br />
-           응원의 메시지를 남겨주세요!
+          열심히 달려온 IT미디어공학전 학우분들을 위해
+          <br />
+          응원의 메시지를 남겨주세요!
         </section>
-        
+
         <img src={lineIcon} alt="line icon" className="mx-auto mb-[80px]" />
 
         <section>
-          {isLoading && (
-            <p className="py-10 text-center text-sm text-gray-500">불러오는 중...</p>
-          )}
-          
+          {isLoading && <p className="py-10 text-center text-sm text-gray-500">불러오는 중...</p>}
+
           {!isLoading && (
             <div className="grid">
               <GuestbookList entries={entries} />
@@ -65,11 +63,7 @@ const GuestbookPage: React.FC = () => {
         </section>
 
         <section className="mt-[48px] flex justify-center">
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onChange={handlePageChange}
-          />
+          <Pagination currentPage={currentPage} totalPages={totalPages} onChange={handlePageChange} />
         </section>
       </div>
     </main>

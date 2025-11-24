@@ -31,9 +31,10 @@ const HamburgerMenu = ({ open, onClose }: HamburgerMenuProps) => {
       role="presentation"
     >
       <div
-        className={`mx-auto w-full max-w-6xl bg-grey-light text-grey-darker shadow-lg transition-transform duration-300 ${
+        className={`mx-auto w-full max-w-6xl md:w-[430px] bg-grey-light text-grey-darker transition-transform duration-300 ${
           open ? "translate-y-0" : "-translate-y-full"
         }`}
+        style={{ boxShadow: "0 0 20px 0 rgba(39, 50, 75, 0.25)" }}
         onClick={(event) => event.stopPropagation()}
         role="presentation"
       >
