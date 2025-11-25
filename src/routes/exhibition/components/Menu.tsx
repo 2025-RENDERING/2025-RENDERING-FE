@@ -46,7 +46,7 @@ const Menu = () => {
         title: "Welcome to RENDERING",
         description:
           "2025 덕성여자대학교 IT미디어공학전공 제13회 졸업전시회: RENDERING\n12월 17일(수) - 12월 19일(금)",
-        imageUrl: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOY6qyYpfJKENHGdKTvTjGF3FoRg7-JnFNTw&s`,
+        imageUrl: `${window.location.origin}/poster.png`,
         link: {
           mobileWebUrl: url,
           webUrl: url,
