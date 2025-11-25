@@ -19,6 +19,7 @@ const BoothMapItem: React.FC<BoothMapItemProps> = ({ className, num, selected, o
       `}
     >
       <div className={`${selected ? "text-white" : "text-red-normal"} text-[12px] leading-[16px]`}>Studio</div>
+      {num !== 10 && 0}
       {num}
     </a>
   );
