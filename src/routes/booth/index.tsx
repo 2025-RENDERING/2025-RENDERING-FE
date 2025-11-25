@@ -3,7 +3,7 @@ import StudioList from "@/components/booth/StudioList";
 
 const BoothPage = () => {
   return (
-    <main className="flex flex-col justify-center px-3 pt-20 pb-[24px] md:pt-[24px]">
+    <main className="flex flex-col justify-center px-3 pt-20 pb-[139px] md:pt-[24px]">
       <BoothMap />
       <StudioList />
     </main>
