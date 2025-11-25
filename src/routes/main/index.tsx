@@ -28,7 +28,7 @@ const MainPage = () => {
           style={{ backgroundImage: `url(${HomeBG})` }}
         ></div>
 
-        <div className="md:w-full md:flex md:flex-col md:items-center md:gap-6 relative z-10">
+        <div className="w-full flex flex-col items-center gap-6 relative z-10">
           <div className="flex flex-col items-end">
             <h1 className="text-blue-light text-[14px] max-[380px]:text-[12px] font-extrabold text-right">
               2025 덕성여자대학교 IT미디어공학전공 제13회 졸업전시회
@@ -41,7 +41,7 @@ const MainPage = () => {
             </h3>
           </div>
 
-          <div className="w-screen max-w-[480px] mr-[11px]">
+          <div className="max-w-[480px] mr-[11px]">
             <img src={HomeIcon} alt="icon" className="w-full h-full object-contain" />
           </div>
 
