@@ -1,4 +1,4 @@
-import StudioItem from "./StuioItem";
+import StudioItem from "./StudioItem";
 import { STUDIO_LIST } from "@/data/studioListData";
 
 const StudioList = () => {

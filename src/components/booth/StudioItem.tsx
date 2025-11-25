@@ -5,12 +5,12 @@ interface StudioItemProps {
   teamId: number[];
 }
 
-const StuioItem: React.FC<StudioItemProps> = ({ studioId, teamId }) => {
+const StudioItem: React.FC<StudioItemProps> = ({ studioId, teamId }) => {
   const teams = PROJECT_LIST.filter((item) => teamId.includes(item.id));
 
   return (
-    <div className="flex flex-col gap-[32px] items-center">
-      <div className="text-grey-light bg-red-normal w-fit px-2 py-1" id={`${studioId}`}>
+    <div className="flex flex-col gap-[32px] items-center scroll-mt-[64px]" id={`${studioId}`}>
+      <div className="text-grey-light bg-red-normal w-fit px-2 py-1">
         Studio {studioId !== 10 && 0}
         {studioId}
       </div>
@@ -24,4 +24,4 @@ const StuioItem: React.FC<StudioItemProps> = ({ studioId, teamId }) => {
   );
 };
 
-export default StuioItem;
+export default StudioItem;
