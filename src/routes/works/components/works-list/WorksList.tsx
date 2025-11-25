@@ -5,7 +5,7 @@ interface WorksCardProps {
   id: number;
   thumbnailImageUrl: string;
   teamName: string;
-  title: string;
+  listTitle: string;
   oneLineDescription: string;
 }
 
@@ -13,7 +13,7 @@ const WorksCard = ({
   id,
   thumbnailImageUrl,
   teamName,
-  title,
+  listTitle,
   oneLineDescription,
 }: WorksCardProps) => {
   const navigate = useNavigate();
@@ -32,7 +32,9 @@ const WorksCard = ({
       <img className="w-full h-auto rounded-[4px]" src={imageSrc} alt="썸네일 이미지" />
       <div className="flex-col items-start w-full flex flex-col mt-[14px] gap-y-[10px]">
         <p className="w-full text-left text-[12px] font-bold text-red-normal">| {teamName}</p>
-        <h1 className="w-full text-left text-[16px] font-bold text-blue-normal">{title}</h1>
+        <h1 className="w-full text-left text-[16px] font-bold text-blue-normal truncate">
+          {listTitle}
+        </h1>
         <p className="w-full text-left text-[12px] font-medium text-grey-darkActive">
           {oneLineDescription}
         </p>
@@ -51,7 +53,8 @@ const WorksList = ({ submittedText }: WorksListProps) => {
   const filteredProjects = PROJECT_LIST.filter((item) => {
     if (!keyword) return true;
     return (
-      item.title.toLowerCase().includes(keyword) || item.teamName.toLowerCase().includes(keyword)
+      item.listTitle.toLowerCase().includes(keyword) ||
+      item.teamName.toLowerCase().includes(keyword)
     );
   });
 
@@ -71,7 +74,7 @@ const WorksList = ({ submittedText }: WorksListProps) => {
           id={item.id}
           thumbnailImageUrl={item.thumbnailImageUrl}
           teamName={item.teamName}
-          title={item.title}
+          listTitle={item.listTitle}
           oneLineDescription={item.oneLineDescription}
         />
       ))}
