@@ -22,7 +22,7 @@ const MainPage = () => {
 
   return (
     <>
-      <section className="max-md:max-w-[480px] w-full max-md:m-auto relative z-20 md:z-10 md:h-[932px] md:z-10 flex flex-col justify-center max-md:h-dvh h-full">
+      <section className="max-md:max-w-[480px] w-full max-md:m-auto relative z-20 md:z-10 md:h-[932px] md:z-10 flex flex-col justify-center max-md:h-dvh h-full overflow-y-hidden">
         <div
           className="max-md:fixed absolute inset-0 z-0 bg-cover bg-center h-dvh w-full md:z-[1]"
           style={{ backgroundImage: `url(${HomeBG})` }}

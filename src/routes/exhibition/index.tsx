@@ -37,15 +37,17 @@ const ExhibitionPage = () => {
   return (
     <>
       <section className="relative z-20 p-[24px] pt-0 flex flex-col items-center overflow-x-hidden md:min-h-[932px] md:z-10">
-        <div
-          className="absolute inset-0 bg-cover bg-center z-0 h-full w-full md:absolute md:inset-0 md:z-[1]"
-          style={{ backgroundImage: `url(${mainBG})` }}
-        ></div>
+        <img
+          src={mainBG}
+          className="absolute inset-0 bg-cover bg-center z-10 h-full w-full md:absolute md:inset-0 md:z-[1]"
+        ></img>
+
+        <div className="absolute inset-0 bg-blue-normal z-5"></div>
 
         <div
           className={`${
             isClicked ? "pt-[71px]" : "pt-[50px]"
-          } h-[175px] transition-all duration-700 ease-out relative z-20 flex just`}
+          } h-[175px] transition-all duration-700 ease-out relative z-40 flex just`}
         >
           <div
             className={`${
@@ -135,7 +137,7 @@ const ExhibitionPage = () => {
           isClicked={isClicked}
         />
 
-        <div className="relative z-20 w-full">
+        <div className="relative z-40 w-full">
           <Intro />
           <Divider icon={LineIcon} />
           <Schedule />

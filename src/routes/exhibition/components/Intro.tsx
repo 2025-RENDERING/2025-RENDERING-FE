@@ -5,7 +5,7 @@ const Intro = () => {
         상상이 현실이 되는 순간, RENDERING
       </h1>
 
-      <div className="text-grey-normal text-x-medium max-[395px]:text-[13px] leading-[19.6px]">
+      <div className="text-grey-normal text-s-medium max-[395px]:text-[13px] leading-[19.6px]">
         <p>
           덕성여자대학교 IT미디어공학전공은
           <br />
@@ -23,7 +23,6 @@ const Intro = () => {
           <br />
           마침내
           <span className="text-s-bold max-[395px]:text-[13px] text-red-normal">
-            {" "}
             RENDERING 99%
           </span>
           에 도달했습니다.
