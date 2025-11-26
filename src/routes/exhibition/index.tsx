@@ -7,7 +7,7 @@ import Way from "./components/Way";
 import Committee from "./components/Committee";
 import Menu from "./components/Menu";
 
-import mainBG from "@/assets/main.png";
+import mainBG from "@/assets/desktopBackground.png";
 import LogoIcon from "@/assets/homeLogo.png";
 import LineIcon from "@/assets/lineIcon.svg";
 import LineOrangeIcon from "@/assets/lineOrangeIcon.svg";
@@ -29,7 +29,9 @@ const ExhibitionPage = () => {
   const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
-    setIsClicked(true);
+    requestAnimationFrame(() => {
+      setIsClicked(true);
+    });
   }, []);
 
   return (

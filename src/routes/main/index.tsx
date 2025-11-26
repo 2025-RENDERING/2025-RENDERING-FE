@@ -22,13 +22,17 @@ const MainPage = () => {
 
   return (
     <>
-      <section className="max-md:max-w-[480px] w-full max-md:m-auto relative z-20 md:z-10 md:min-h-[932px] md:z-10 flex flex-col items-center justify-center max-md:h-dvh">
+      <section className="max-md:max-w-[480px] w-full max-md:m-auto relative z-20 md:z-10 md:h-[932px] md:z-10 flex flex-col justify-center max-md:h-dvh h-full">
         <div
-          className="max-md:fixed absolute inset-0 z-0 bg-cover bg-center  h-full w-full md:z-[1]"
+          className="max-md:fixed absolute inset-0 z-0 bg-cover bg-center h-dvh w-full md:z-[1]"
           style={{ backgroundImage: `url(${HomeBG})` }}
         ></div>
 
-        <div className="w-full flex flex-col items-center gap-6 relative z-10">
+        <div className="max-w-[420px] w-full max-md:h-full mr-[11px] fixed z-10 flex items-center justify-center">
+          <img src={HomeIcon} alt="icon" className="w-full h-full object-contain" />
+        </div>
+
+        <div className="w-full h-dvh flex flex-col items-center justify-between gap-6 relative z-10 pt-[max(13vh,35px)] pb-[35px]">
           <div className="flex flex-col items-end">
             <h1 className="text-blue-light text-[14px] max-[380px]:text-[12px] font-extrabold text-right">
               2025 덕성여자대학교 IT미디어공학전공 제13회 졸업전시회
@@ -39,10 +43,6 @@ const MainPage = () => {
             <h3 className="text-blue-lightActive text-right text-[17px] font-bold tracking-[5.1px]">
               상상이 현실이 되는 순간
             </h3>
-          </div>
-
-          <div className="max-w-[480px] mr-[11px]">
-            <img src={HomeIcon} alt="icon" className="w-full h-full object-contain" />
           </div>
 
           <img
