@@ -20,7 +20,7 @@ const Menu = () => {
     },
   ];
 
-  const url = window.location.href;
+  const url = window.location.origin;
 
   useEffect(() => {
     const kakaoScript = document.createElement("script");
