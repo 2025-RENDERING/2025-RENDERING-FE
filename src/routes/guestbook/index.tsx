@@ -46,7 +46,7 @@ const GuestbookPage: React.FC = () => {
           <GuestbookForm onSuccess={handleCreateSuccess} />
         </div>
         <section className="mt-[64px] mb-[80px] text-center text-[14px] leading-[22px] text-blue-normal font-semibold">
-          열심히 달려온 IT미디어공학전 학우분들을 위해
+          열심히 달려온 IT미디어공학전공 학우분들을 위해
           <br />
           응원의 메시지를 남겨주세요!
         </section>

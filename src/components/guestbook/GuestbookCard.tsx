@@ -14,7 +14,7 @@ const GuestbookCard: React.FC<GuestbookCardProps> = ({ entry }) => {
       <div
         className="relative flex flex-col border border-red-normal max-w-[178px] h-[171px] "
       >
-          <div className=" h-[125px] px-[12px] mt-[11px] text-[12px] leading-[16px] overflow-scroll scrollbar-hide">
+          <div className="break-all h-[125px] px-[12px] mt-[11px] text-[12px] leading-[16px] overflow-scroll scrollbar-hide whitespace-pre-line">
             {entry.message}
           </div>
           <div className="absolute bottom-[10px] right-[13px] text-right text-[12px] text-grey-dark">
