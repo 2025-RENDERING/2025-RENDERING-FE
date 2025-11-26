@@ -51,10 +51,16 @@ const WorksDetailContents = ({ id }: WorksDetailContentsProps) => {
           팀원
         </div>
         {work.members.map((member, index) => (
-          <span key={index} className="pr-[5px] text-[14px] font-medium text-grey-darker">
-            {index !== 0 && " | "}
-            {member}
-          </span>
+          <>
+            {index !== 0 && (
+              <span key={index} className="mr-[4px] text-[14px] font-medium text-grey-darker">
+                |
+              </span>
+            )}
+            <span key={index} className="mr-[4px] text-[14px] font-medium text-grey-darker">
+              {member}
+            </span>
+          </>
         ))}
       </div>
 
