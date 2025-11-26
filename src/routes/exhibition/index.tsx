@@ -47,7 +47,7 @@ const ExhibitionPage = () => {
         <div
           className={`${
             isClicked ? "pt-[71px]" : "pt-[50px]"
-          } h-[175px] transition-all duration-700 ease-out relative z-20 flex just`}
+          } h-[175px] transition-all duration-700 ease-out relative z-40 flex just`}
         >
           <div
             className={`${
@@ -137,7 +137,7 @@ const ExhibitionPage = () => {
           isClicked={isClicked}
         />
 
-        <div className="relative z-20 w-full">
+        <div className="relative z-40 w-full">
           <Intro />
           <Divider icon={LineIcon} />
           <Schedule />
