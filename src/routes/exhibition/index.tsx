@@ -29,7 +29,9 @@ const ExhibitionPage = () => {
   const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
-    setIsClicked(true);
+    requestAnimationFrame(() => {
+      setIsClicked(true);
+    });
   }, []);
 
   return (

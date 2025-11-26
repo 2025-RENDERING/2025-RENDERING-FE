@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+
 interface AnimateProps {
   Icon: string;
   position?: {
@@ -10,6 +12,8 @@ interface AnimateProps {
 }
 
 const Animate = ({ Icon, position, exit, isClicked }: AnimateProps) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
     <div
       style={{
@@ -20,12 +24,22 @@ const Animate = ({ Icon, position, exit, isClicked }: AnimateProps) => {
       className={`
         absolute z-30
         transition-all duration-700 ease-out transform
-        ${isClicked ? "opacity-100 translate-x-0 translate-y-0" : `${exit} opacity-0`}
+        will-change-transform
+        ${
+          isLoaded && isClicked
+            ? "opacity-100 translate-x-0 translate-y-0"
+            : `${exit} opacity-0`
+        }
       `}
     >
-      <img src={Icon} alt="icon" className="w-full h-full" />
+      <img
+        src={Icon}
+        alt="icon"
+        onLoad={() => setIsLoaded(true)}
+        className="w-full h-full"
+      />
     </div>
   );
 };
 
-export default Animate;
+export default React.memo(Animate);
