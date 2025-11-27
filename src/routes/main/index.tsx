@@ -25,7 +25,7 @@ const MainPage = () => {
           style={{ backgroundImage: `url(${HomeBG})` }}
         ></div>
 
-        <div className="md:max-w-[480px] w-full h-full md:h-[min(932px,100dvh) fixed z-10 flex items-center justify-center">
+        <div className="md:max-w-[480px] w-full h-full md:h-[932px] fixed z-10 flex items-center justify-center">
           <img
             src={MainGif}
             alt="icon"
