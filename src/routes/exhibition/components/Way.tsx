@@ -63,11 +63,14 @@ const Way = () => {
           });
           observer.observe(container);
         }
+
+        window.addEventListener("resize", tryCreateMap);
       });
     };
 
     return () => {
       document.head.removeChild(script);
+      window.removeEventListener("resize", tryCreateMap);
     };
   }, []);
 
