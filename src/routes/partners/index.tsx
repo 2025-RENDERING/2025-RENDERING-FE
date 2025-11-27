@@ -2,14 +2,19 @@ import ScrollingLogos from "./components/ScrollingLogos";
 import PartnerSection from "./components/PartnerSection";
 import inclearLogo from "@/assets/partners/inclear.svg";
 import jiguLogo from "@/assets/partners/jigu.svg";
+import monstaLogo from "@/assets/partners/monstaLogo.svg";
+import kindLogo from "@/assets/partners/kindLogo.svg";
 import inclearProduct from "@/assets/partners/inclearProduct.svg";
 import jiguProduct from "@/assets/partners/jiguProduct.svg";
+import monstaProduct from "@/assets/partners/monstaProduct.svg";
+import kindProduct from "@/assets/partners/kindProduct.svg";
 
 const PartnersPage = () => {
   const scrollingLogos = [
     { id: "inclear", image: inclearLogo },
     { id: "jiguroun", image: jiguLogo },
-    { id: "photo", text: "착한 사진관" },
+    { id: "monsta", image: monstaLogo },
+    { id: "photo", image: kindLogo },
   ];
 
   return (
@@ -28,6 +33,14 @@ const PartnersPage = () => {
           showDecoration={true}
           decorationCount={5}
         />
+        <PartnerSection
+          title="monsta."
+          titleImage={monstaLogo}
+          description={["에너지를 깨우는 글로벌 에너지 드링크 브랜드 '몬스터 에너지'"]}
+          images={[monstaProduct]}
+          showDecoration={true}
+          decorationCount={5}
+        />
 
         <PartnerSection
           title="지구로운"
@@ -38,7 +51,7 @@ const PartnersPage = () => {
           decorationCount={5}
         />
 
-        <PartnerSection title="착한 사진관" description={["덕성여자대학교 정문 앞에 위치한 가족사진전문점", '"착한사진관"']} />
+        <PartnerSection title="착한 사진관" description={["덕성여자대학교 정문 앞에 위치한 가족사진전문점", "착한사진관"]} images={[kindProduct]} />
       </div>
     </div>
   );

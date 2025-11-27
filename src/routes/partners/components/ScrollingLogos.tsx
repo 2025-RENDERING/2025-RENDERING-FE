@@ -18,7 +18,7 @@ const ScrollingLogos = ({ logos }: ScrollingLogosProps) => {
           <Fragment key={`${logo.id}-${index}`}>
             <div className="flex items-center shrink-0 mx-4">
               {logo.image ? (
-                <img src={logo.image} alt={logo.id} className="h-[39px] object-contain" />
+                <img src={logo.image} alt={logo.id} className={logo.id === "photo" ? "w-[62px] h-[18px] object-contain" : "h-[39px] object-contain"} />
               ) : (
                 <span className="text-s-bold text-grey-darker whitespace-nowrap">{logo.text}</span>
               )}
