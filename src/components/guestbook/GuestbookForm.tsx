@@ -25,7 +25,7 @@ const GuestbookForm: React.FC<GuestbookFormProps> = ({ onSuccess }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-[354px] mt-[55px]">
+    <form onSubmit={handleSubmit} className="w-full max-w-[382px] mt-[55px]">
       <div>
         <input
           className="w-[172px] h-[32px] rounded-none border-none px-[14px] py-[1px] bg-red-normal text-[14px] text-grey-lightActive font-medium outline-none placeholder:text-red-lightActive"
@@ -36,7 +36,7 @@ const GuestbookForm: React.FC<GuestbookFormProps> = ({ onSuccess }) => {
         />
       </div>
 
-      <div className='max-w-[354px]'>
+      <div>
         <textarea
           className="h-[80px] w-full resize-none rounded-none border border-red-normal bg-grey-normal p-[14px] text-[14px] placeholder:text-grey-dark outline-none scrollbar-hide"
           placeholder="방명록을 남겨 주세요.(100자 이내)"
