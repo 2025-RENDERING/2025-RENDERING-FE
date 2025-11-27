@@ -1,4 +1,4 @@
-import duksugLogo from "../assets/duksungLogo.svg";
+import duksugLogo from "../assets/duksungLogo.png";
 
 const Footer = () => {
   return (

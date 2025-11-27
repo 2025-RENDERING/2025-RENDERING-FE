@@ -1,27 +1,94 @@
 interface PartnerSectionProps {
   title: string;
   titleImage?: string;
+  titleImageWidth?: number;
+  titleImageHeight?: number;
   description: string[];
   images?: string[];
   showDecoration?: boolean;
   decorationCount?: number;
+  imageWidth?: number;
+  imageHeight?: number;
 }
 
-const PartnerSection: React.FC<PartnerSectionProps> = ({ title, titleImage, description, images = [], showDecoration = false, decorationCount = 5 }) => {
+const PartnerSection: React.FC<PartnerSectionProps> = ({
+  title,
+  titleImage,
+  titleImageWidth,
+  titleImageHeight,
+  description,
+  images = [],
+  showDecoration = false,
+  decorationCount = 5,
+  imageWidth,
+  imageHeight,
+}) => {
   return (
     <section className="w-full py-12">
       <div className="flex items-center justify-center mb-8 text-grey-darker text-s-bold">
         <div className="flex-1 h-px bg-red-normal" />
         <div className="mx-6">
-          {titleImage ? <img src={titleImage} alt={title} className="h-[39px] object-contain" /> : <h2 className="text-text-xxl-medium text-black">{title}</h2>}
+          {titleImage ? (
+            <img
+              src={titleImage}
+              alt={title}
+              className={titleImageWidth || titleImageHeight ? "" : "h-[39px] object-contain"}
+              style={
+                titleImageWidth || titleImageHeight
+                  ? {
+                      width: titleImageWidth ? `${titleImageWidth}px` : "auto",
+                      height: titleImageHeight ? `${titleImageHeight}px` : "auto",
+                      objectFit: "contain",
+                    }
+                  : undefined
+              }
+            />
+          ) : (
+            <h2 className="text-text-xxl-medium text-black">{title}</h2>
+          )}
         </div>
         <div className="flex-1 h-px bg-red-normal" />
       </div>
 
       <div className="w-full border border-red-normal p-8 mb-4">
-        <div className="mb-8 flex items-center justify-center">
+        <div className="mb-8 flex items-center justify-center overflow-hidden">
           {images.length > 0 ? (
-            <img src={images[0]} alt={title} className="max-w-full max-h-64 object-contain" />
+            <div
+              className="flex items-center justify-center"
+              style={{
+                gap: 0,
+                ...(imageWidth && imageHeight
+                  ? { maxWidth: `${imageWidth}px`, maxHeight: `${imageHeight}px`, width: images.length > 1 ? `${imageWidth}px` : "auto" }
+                  : {}),
+              }}
+            >
+              {images.map((image, index) => {
+                const style: React.CSSProperties = {
+                  display: "block",
+                  objectFit: "contain",
+                };
+
+                if (imageWidth && imageHeight) {
+                  if (images.length > 1) {
+                    style.height = `${imageHeight}px`;
+                    style.width = "auto";
+                  } else {
+                    style.width = `${imageWidth}px`;
+                    style.height = `${imageHeight}px`;
+                  }
+                }
+
+                return (
+                  <img
+                    key={index}
+                    src={image}
+                    alt={`${title} ${index + 1}`}
+                    className={imageWidth || imageHeight ? "max-w-full max-h-full" : "max-w-full max-h-64 object-contain"}
+                    style={style}
+                  />
+                );
+              })}
+            </div>
           ) : (
             <div className="text-s-bold text-grey-dark">사진 첨부 예정</div>
           )}

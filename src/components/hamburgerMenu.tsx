@@ -7,6 +7,7 @@ type HamburgerMenuProps = {
 };
 
 const MENU_ITEMS: Array<{ label: string; path: string }> = [
+  { label: "홈", path: "/" },
   { label: "전시 소개", path: "/exhibition" },
   { label: "작품 목록", path: "/works" },
   { label: "부스 배치도", path: "/booth" },
