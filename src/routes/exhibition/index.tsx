@@ -47,7 +47,7 @@ const ExhibitionPage = () => {
         <div
           className={`${
             isClicked ? "pt-[71px]" : "pt-[50px]"
-          } h-[175px] transition-all duration-700 ease-out relative z-40 flex just`}
+          } h-[175px] transition-all duration-700 ease-out relative z-40 flex max-md:mt-[64px]`}
         >
           <div
             className={`${
