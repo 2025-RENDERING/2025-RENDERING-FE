@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const useLayoutState = () => {
@@ -22,9 +22,21 @@ const useLayoutState = () => {
   }, [isMainPage, isNotFoundPage, isMenuOpen]);
 
   const containerClassName = useMemo(() => {
-    const base = "min-h-screen bg-grey-light";
+    const base = "min-h-dvh bg-grey-light";
     return isMenuOpen ? `${base} overflow-hidden` : base;
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      document.body.classList.add("home-bg");
+    } else {
+      document.body.classList.remove("home-bg");
+    }
+
+    return () => {
+      document.body.classList.remove("home-bg");
+    };
+  }, [location.pathname]);
 
   return {
     isMainPage,
