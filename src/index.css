@@ -28,6 +28,11 @@
     font-family: theme("fontFamily.pretendard");
   }
 
+  body.home-bg {
+  min-height: 100dvh;
+  background-color: #224594;
+  }
+
   a {
     color: theme("colors.blue.normal");
     text-decoration: none;
