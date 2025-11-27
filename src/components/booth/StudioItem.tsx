@@ -10,7 +10,7 @@ const StudioItem: React.FC<StudioItemProps> = ({ studioId, teamId }) => {
 
   return (
     <div className="flex flex-col gap-[32px] items-center scroll-mt-[64px]" id={`${studioId}`}>
-      <div className="text-grey-light bg-red-normal w-fit px-2 py-1">
+      <div className="text-grey-light bg-red-normal px-2 py-1 w-[111px] flex justify-center items-center text-[14px] leading-[140%]">
         Studio {studioId !== 10 && 0}
         {studioId}
       </div>
