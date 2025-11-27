@@ -38,6 +38,10 @@ const Way = () => {
       if (!container) return false;
       if (container.offsetWidth === 0 || container.offsetHeight === 0) return false;
 
+      if (mapRef.current) {
+        container.innerHTML = "";
+      }
+
       const markerPos = new window.kakao.maps.LatLng(37.6553762, 127.0480035);
       const marker = { position: markerPos };
       const options = {
@@ -49,6 +53,8 @@ const Way = () => {
       new window.kakao.maps.StaticMap(container, options);
       return true;
     };
+
+    const handleResize = () => tryCreateMap();
 
     script.onload = () => {
       window.kakao.maps.load(() => {
@@ -63,11 +69,14 @@ const Way = () => {
           });
           observer.observe(container);
         }
+
+        window.addEventListener("resize", handleResize);
       });
     };
 
     return () => {
       document.head.removeChild(script);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
