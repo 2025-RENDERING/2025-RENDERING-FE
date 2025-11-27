@@ -40,7 +40,7 @@ const GuestbookPage: React.FC = () => {
   };
 
   return (
-    <main className="flex justify-center items-center px-[24.5px]">
+    <main className="flex justify-center items-start px-[24.5px] md:flex-1">
       <div className="w-full md:w-[430px] lg:w-[430px] flex flex-col mb-[78px] pt-[64px] md:pt-0">
         <div className="flex w-full justify-center">
           <GuestbookForm onSuccess={handleCreateSuccess} />
