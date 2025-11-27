@@ -34,7 +34,7 @@ const MainPage = () => {
         </div>
 
         <div className="w-full h-dvh z-10">
-          <div className="flex flex-col gap-[20px] items-center w-full mt-[5vh] absolute bottom-[35px] max-[344px]:bottom-[90px]">
+          <div className="flex flex-col gap-[20px] items-center w-full min-[520px]:fixed min-[520px]:left-1/2 min-[520px]:-translate-x-1/2 mt-[5vh] max-md:fixed md:absolute bottom-[35px] max-[344px]:bottom-[90px]">
             {MENU_ROWS.map((row, idx) => (
               <div key={idx} className={`${row.gap} flex justify-center w-full`}>
                 {row.items.map((menu) => (
