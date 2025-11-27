@@ -47,6 +47,17 @@ const App = () => {
     </>
   );
 
+  const desktopContentClassName = [
+    "w-[430px]",
+    "h-[min(932px,100dvh)]",
+    isMainPage ? "overflow-hidden" : "overflow-y-auto",
+    "overflow-x-hidden",
+    "md:pointer-events-auto",
+    "relative",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <>
       {/* 데스크탑 배경 레이어 - 가장 아래 고정 배경 */}
@@ -74,10 +85,7 @@ const App = () => {
 
       {/* 데스크탑 중앙 스크롤 컨테이너 */}
       <div className="hidden md:flex md:items-center md:justify-center md:fixed md:inset-0 md:z-10 md:overflow-hidden md:overflow-x-hidden md:pointer-events-none">
-        <div
-          className="w-[430px] h-[min(932px,100dvh)] overflow-y-auto overflow-x-hidden md:pointer-events-auto relative"
-          style={{ boxShadow: "0 0 20px 0 rgba(39, 50, 75, 0.25)" }}
-        >
+        <div className={desktopContentClassName} style={{ boxShadow: "0 0 20px 0 rgba(39, 50, 75, 0.25)" }}>
           {commonComponents}
         </div>
       </div>

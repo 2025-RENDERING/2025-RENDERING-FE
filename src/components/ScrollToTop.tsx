@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import floatingBtn from "@/assets/floatingBtn.svg";
 const ScrollToTop: React.FC = () => {
+  const location = useLocation();
   const [isVisible, setIsVisible] = useState(false);
   const [isAtBottom, setIsAtBottom] = useState(false);
   const [footerHeight, setFooterHeight] = useState(0);
@@ -78,6 +80,11 @@ const ScrollToTop: React.FC = () => {
       window.removeEventListener("resize", checkDesktop);
     };
   }, [isDesktop]);
+
+  useEffect(() => {
+    setIsVisible(false);
+    setIsAtBottom(false);
+  }, [location.pathname]);
 
   const scrollToTop = () => {
     const scrollContainer = document.querySelector(".w-\\[430px\\]");
