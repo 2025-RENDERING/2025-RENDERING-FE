@@ -2,8 +2,8 @@ import BoothMapItem from "./BoothMapItem";
 
 const BoothMap = () => {
   return (
-    <div className="h-[215px] flex justify-center bg-red-light rounded-lg px-[3vw] py-[2.5vh]">
-      <div className="relative w-full max-w-[300px] h-[215px]">
+    <div className="h-[215px] flex justify-center items-center bg-red-light rounded-lg px-[3vw] py-[2.5vh]">
+      <div className="relative w-full max-w-[300px] h-[155px]">
         <BoothMapItem className="absolute top-[0%] left-[5%] h-[40px] px-[2vw] max-w-[63px]" num={10} />
 
         <div className="h-[155px] flex justify-between items-end gap-[4px]">
