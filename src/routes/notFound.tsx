@@ -32,7 +32,7 @@ const NotFoundPage = () => {
       </div>
 
       {/* 데스크탑 레이아웃 */}
-      <div className="hidden md:flex md:flex-col md:items-center md:justify-center md:relative md:z-10 md:w-full md:min-h-[932px] md:text-center">
+      <div className="hidden md:flex md:flex-col md:items-center md:justify-center md:relative md:z-10 md:w-full md:h-screen md:overflow-hidden md:text-center">
         {/* 데스크탑 배경 레이어들 */}
         <div className="hidden md:block md:absolute md:inset-0 md:z-[1] md:bg-cover md:bg-center" style={{ backgroundImage: `url(${mainBG})` }}>
           <div className="absolute inset-0 z-0 bg-cover bg-center" style={{ backgroundImage: `url(${notFoundBG})` }} />

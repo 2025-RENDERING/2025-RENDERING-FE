@@ -49,8 +49,8 @@ const App = () => {
 
   const desktopContentClassName = [
     "w-[430px]",
-    "h-[min(932px,100dvh)]",
-    isMainPage ? "overflow-hidden" : "overflow-y-auto",
+    isNotFoundPage ? "h-screen" : "h-[min(932px,100dvh)]",
+    isMainPage || isNotFoundPage ? "overflow-hidden" : "overflow-y-auto",
     "overflow-x-hidden",
     "md:pointer-events-auto",
     "relative",

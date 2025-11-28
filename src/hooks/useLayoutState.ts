@@ -13,7 +13,7 @@ const useLayoutState = () => {
 
   const mainClassName = useMemo(() => {
     if (isNotFoundPage) {
-      return "w-full";
+      return "w-full md:h-full";
     }
     const base = "mx-auto w-full max-w-6xl";
     const layout = isMainPage ? "" : "bg-grey-normal";
