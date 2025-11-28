@@ -68,17 +68,22 @@
 }
 
 @layer utilities {
+  /* 왼쪽으로 무한 슬라이드하는 애니메이션 */
   @keyframes scroll-left {
     0% {
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translate3d(var(--scroll-distance, -50%), 0, 0);
     }
   }
 
   .animate-scroll-left {
-    animation: scroll-left 8s linear infinite;
+    animation: scroll-left 20s linear infinite;
     display: flex;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
   }
 }
