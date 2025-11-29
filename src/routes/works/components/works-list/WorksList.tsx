@@ -60,7 +60,7 @@ const WorksList = ({ submittedText }: WorksListProps) => {
 
   if (filteredProjects.length === 0) {
     return (
-      <p className="w-full text-center text-[14px] font-semibold text-grey-dark">
+      <p className="w-full mt-[200px] text-center text-[14px] font-semibold text-grey-dark">
         검색 결과가 없습니다.
       </p>
     );
