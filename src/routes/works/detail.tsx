@@ -6,7 +6,7 @@ const WorksDetailPage = () => {
   const { id } = useParams<{ id: string }>();
 
   return (
-    <section className="w-full p-[24px] pt-20 md:pt-[30px]">
+    <section className="w-full min-h-[762px] p-[24px] pt-20 md:pt-[30px]">
       <WorksDetailContents id={Number(id)} />
       <Pagination id={Number(id)} />
     </section>
