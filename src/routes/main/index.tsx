@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import Lottie from "lottie-react";
 
-import MainGif2 from "@/assets/lottie/main-animation.json";
+import MainGif from "@/assets/main.gif";
 import HomeBG from "@/assets/desktopBackground.png";
 
 const MainPage = () => {
@@ -19,46 +17,24 @@ const MainPage = () => {
     { items: MENU.slice(3), gap: "gap-[27px]" },
   ];
 
-  const [aspect, setAspect] = useState("xMidYMin slice");
-
-  useEffect(() => {
-    const updateAspect = () => {
-      const width = window.innerWidth;
-
-      if (width <= 520 || width >= 768) {
-        setAspect("xMidYMin slice");
-      } else {
-        setAspect("xMidYMin meet");
-      }
-    };
-
-    updateAspect();
-    window.addEventListener("resize", updateAspect);
-
-    return () => window.removeEventListener("resize", updateAspect);
-  }, []);
-
   return (
     <>
-      <section className="bg-[#1b4397] max-md:max-w-[430px] w-full max-md:m-auto relative z-20 md:z-10 md:z-10 flex justify-center items-center max-md:h-dvh h-full">
+      <section className="bg-[#1b4397] max-md:max-w-[480px] w-full max-md:m-auto relative z-20 md:z-10 md:z-10 flex justify-center items-center max-md:h-dvh h-full">
         <div
           className="max-md:fixed absolute inset-0 z-0 bg-cover bg-center h-dvh w-full md:z-[1]"
           style={{ backgroundImage: `url(${HomeBG})` }}
         ></div>
 
-        <div className="md:max-w-[430px] w-full h-full md:h-[932px] fixed z-10 flex items-center justify-center -translate-y-[10vh] max-w-[]">
-          <Lottie
-            key={aspect}
-            animationData={MainGif2}
-            className="w-full h-full [&>svg]:w-full [&>svg]:h-full [&>svg]:object-cover [&>svg]:min-w-[520px]:object-contain [&>svg]:md:!object-cover"
-            rendererSettings={{
-              preserveAspectRatio: aspect,
-            }}
+        <div className="md:max-w-[480px] w-full h-full md:h-[932px] fixed z-10 flex items-center justify-center">
+          <img
+            src={MainGif}
+            alt="icon"
+            className="w-full h-full object-cover min-[483px]:object-contain md:!object-cover [object-position:50%_20%]"
           />
         </div>
 
         <div className="w-full h-dvh md:h-[min(932px,100dvh)] z-10">
-          <div className="flex flex-col gap-[20px] items-center w-full min-[520px]:fixed min-w-[520px]:left-1/2 min-w-[520px]:-translate-x-1/2 mt-[5vh] max-md:fixed md:absolute bottom-[35px] max-[344px]:bottom-[90px]">
+          <div className="flex flex-col gap-[20px] items-center w-full min-[483px]:fixed min-[483px]:left-1/2 min-[483px]:-translate-x-1/2 mt-[5vh] max-md:fixed md:absolute bottom-[35px] max-[344px]:bottom-[90px]">
             {MENU_ROWS.map((row, idx) => (
               <div key={idx} className={`${row.gap} flex justify-center w-full`}>
                 {row.items.map((menu) => (
