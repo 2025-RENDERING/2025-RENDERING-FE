@@ -7,7 +7,7 @@ const WorksPage = () => {
   const [submittedText, setSubmittedText] = useState("");
 
   return (
-    <section className="w-full min-h-[762px] flex flex-col items-end gap-[36px] pt-[100px] px-[24px] pb-[24px] md:pt-[24px]">
+    <section className="w-full min-h-[calc(100dvh-198px)] flex flex-col items-end gap-[36px] pt-[100px] px-[24px] pb-[24px] md:pt-[24px]">
       <SearchBar
         searchText={searchText}
         setSearchText={setSearchText}

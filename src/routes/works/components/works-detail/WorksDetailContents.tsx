@@ -15,7 +15,7 @@ const WorksDetailContents = ({ id }: WorksDetailContentsProps) => {
 
   if (!work) {
     return (
-      <p className="w-full mt-[200px] mb-[250px] text-center text-[14px] font-semibold text-grey-dark">
+      <p className="w-full h-[calc(100dvh-370px)] pt-[200px] text-center text-[14px] font-semibold text-grey-dark">
         존재하지 않는 작품입니다.
       </p>
     );
