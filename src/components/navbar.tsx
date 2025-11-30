@@ -43,7 +43,7 @@ const Navbar = ({ onMenuOpen }: NavbarProps) => {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 flex h-16 items-center px-[24px] shadow-[0_4px_15px_0_rgba(216,193,193,0.25)] md:sticky md:inset-x-auto md:w-[430px] md:shadow-none ${getBackgroundClass()} ${textColorClass}`}
+      className={`fixed inset-x-0 top-0 z-50 flex h-16 items-center px-[24px] shadow-[0_4px_15px_0_rgba(216,193,193,0.25)] md:sticky md:inset-x-auto md:w-[430px] ${getBackgroundClass()} ${textColorClass}`}
       style={getBackgroundStyle()}
     >
       <button
