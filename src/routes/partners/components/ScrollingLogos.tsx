@@ -38,18 +38,65 @@ const ScrollingLogos = ({ logos }: ScrollingLogosProps) => {
 
   return (
     <div className="relative w-full overflow-hidden py-4">
+      <style>{`
+        @keyframes scroll-left-custom {
+          0% {
+            transform: translate3d(0, 0, 0);
+          }
+          100% {
+            transform: translate3d(${animationDistance}, 0, 0);
+          }
+        }
+        .scrolling-logo-img {
+          max-width: 100%;
+          height: auto;
+          object-fit: contain;
+        }
+        .scrolling-logo-img.photo-logo {
+          width: clamp(46px, 12vw, 62px);
+          height: auto;
+        }
+        .scrolling-logo-img.normal-logo {
+          height: clamp(29px, 7.5vw, 39px);
+          width: auto;
+        }
+        .scrolling-logo-dot {
+          width: clamp(6px, 1.5vw, 8px);
+          height: clamp(6px, 1.5vw, 8px);
+        }
+        .scrolling-logo-gap {
+          margin-left: clamp(8px, 2vw, 16px);
+          margin-right: clamp(8px, 2vw, 16px);
+        }
+        @media (min-width: 768px) {
+          .scrolling-logo-img.photo-logo {
+            width: 62px;
+          }
+          .scrolling-logo-img.normal-logo {
+            height: 39px;
+          }
+          .scrolling-logo-dot {
+            width: 8px;
+            height: 8px;
+          }
+          .scrolling-logo-gap {
+            margin-left: 16px;
+            margin-right: 16px;
+          }
+        }
+      `}</style>
       {/* 원본 세트 - 너비 측정용 (숨김) */}
       <div ref={originalSetRef} className="flex items-center absolute opacity-0 pointer-events-none" style={{ visibility: "hidden" }}>
         {logos.map((logo, index) => (
           <Fragment key={`original-${logo.id}-${index}`}>
-            <div className="flex items-center shrink-0 mx-4">
+            <div className="flex items-center shrink-0 scrolling-logo-gap">
               {logo.image ? (
-                <img src={logo.image} alt={logo.id} className={logo.id === "photo" ? "w-[62px] h-[18px] object-contain" : "h-[39px] object-contain"} />
+                <img src={logo.image} alt={logo.id} className={`scrolling-logo-img ${logo.id === "photo" ? "photo-logo" : "normal-logo"}`} />
               ) : (
                 <span className="text-s-bold text-grey-darker whitespace-nowrap">{logo.text}</span>
               )}
             </div>
-            <div className="w-2 h-2 bg-red-normal shrink-0 mx-4" />
+            <div className="scrolling-logo-dot bg-red-normal shrink-0 scrolling-logo-gap" />
           </Fragment>
         ))}
       </div>
@@ -66,26 +113,16 @@ const ScrollingLogos = ({ logos }: ScrollingLogosProps) => {
           WebkitBackfaceVisibility: "hidden",
         }}
       >
-        <style>{`
-          @keyframes scroll-left-custom {
-            0% {
-              transform: translate3d(0, 0, 0);
-            }
-            100% {
-              transform: translate3d(${animationDistance}, 0, 0);
-            }
-          }
-        `}</style>
         {duplicatedLogos.map((logo, index) => (
           <Fragment key={`${logo.id}-${index}`}>
-            <div className="flex items-center shrink-0 mx-4">
+            <div className="flex items-center shrink-0 scrolling-logo-gap">
               {logo.image ? (
-                <img src={logo.image} alt={logo.id} className={logo.id === "photo" ? "w-[62px] h-[18px] object-contain" : "h-[39px] object-contain"} />
+                <img src={logo.image} alt={logo.id} className={`scrolling-logo-img ${logo.id === "photo" ? "photo-logo" : "normal-logo"}`} />
               ) : (
                 <span className="text-s-bold text-grey-darker whitespace-nowrap">{logo.text}</span>
               )}
             </div>
-            <div className="w-2 h-2 bg-red-normal shrink-0 mx-4" />
+            <div className="scrolling-logo-dot bg-red-normal shrink-0 scrolling-logo-gap" />
           </Fragment>
         ))}
       </div>

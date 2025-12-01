@@ -35,6 +35,7 @@ const PartnersPage = () => {
           decorationCount={5}
           imageWidth={247}
           imageHeight={130.46}
+          isFirst={true}
         />
         <PartnerSection
           title="monsta."

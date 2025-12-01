@@ -9,6 +9,7 @@ interface PartnerSectionProps {
   decorationCount?: number;
   imageWidth?: number;
   imageHeight?: number;
+  isFirst?: boolean;
 }
 
 const PartnerSection: React.FC<PartnerSectionProps> = ({
@@ -22,9 +23,10 @@ const PartnerSection: React.FC<PartnerSectionProps> = ({
   decorationCount = 5,
   imageWidth,
   imageHeight,
+  isFirst = false,
 }) => {
   return (
-    <section className="w-full py-12">
+    <section className={`w-full py-6 ${isFirst ? "md:pt-0" : ""}`}>
       <div className="flex items-center justify-center mb-8 text-grey-darker text-s-bold">
         <div className="flex-1 h-px bg-red-normal" />
         <div className="mx-6">
@@ -44,7 +46,7 @@ const PartnerSection: React.FC<PartnerSectionProps> = ({
               }
             />
           ) : (
-            <h2 className="text-text-xxl-medium text-black">{title}</h2>
+            <h2 className="text-xxl-medium text-black">{title}</h2>
           )}
         </div>
         <div className="flex-1 h-px bg-red-normal" />
