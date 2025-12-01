@@ -4,7 +4,7 @@ import MainVideo from "@/assets/main.mp4";
 import MainPosterPng from "@/assets/main-poster.png";
 import MainPosterPng1x from "@/assets/main-poster-default.png";
 import HomeBG from "@/assets/desktopBackground.png";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const MainPage = () => {
   const MENU = [
@@ -20,8 +20,26 @@ const MainPage = () => {
     { items: MENU.slice(3), gap: "gap-[27px]" },
   ];
 
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isEnded, setIsEnded] = useState<boolean>(false);
   const [isPosterLoaded, setIsPosterLoaded] = useState<boolean>(false);
+  const [showPoster, setShowPoster] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.playbackRate = 0.6;
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // autoplay 실패한 경우
+        setShowPoster(true);
+        setIsEnded(true);
+      });
+    }
+  }, []);
 
   return (
     <>
@@ -31,21 +49,21 @@ const MainPage = () => {
           style={{ backgroundImage: `url(${HomeBG})` }}
         ></div>
 
-        <div className="md:max-w-[480px] w-full h-full md:h-[932px] fixed z-10 flex items-center justify-center">
+        <div className="md:max-w-[480px] w-[90%] h-full md:h-[932px] fixed z-10 flex items-center justify-center">
           <div className="relative w-full h-full">
-            <video
-              src={MainVideo}
-              autoPlay
-              muted
-              playsInline
-              className={`absolute inset-0 w-full h-full object-cover min-[483px]:object-contain md:!object-cover [object-position:50%_20%]`}
-              onEnded={() => setIsEnded(true)}
-              ref={(el) => {
-                if (el) el.playbackRate = 0.6;
-              }}
-            />
+            {!showPoster && (
+              <video
+                ref={videoRef}
+                src={MainVideo}
+                autoPlay
+                muted
+                playsInline
+                className={`absolute inset-0 w-full h-full object-cover min-[483px]:object-contain md:!object-cover [object-position:50%_20%]`}
+                onEnded={() => setIsEnded(true)}
+              />
+            )}
 
-            {isEnded && !isPosterLoaded && (
+            {(isEnded || showPoster) && !isPosterLoaded && (
               <img
                 src={MainPosterPng1x}
                 alt="poster"
@@ -53,7 +71,7 @@ const MainPage = () => {
               />
             )}
 
-            {isEnded && (
+            {(isEnded || showPoster) && (
               <img
                 src={MainPosterPng}
                 alt="poster"
@@ -68,7 +86,7 @@ const MainPage = () => {
 
         <div className="w-full h-dvh md:h-[min(932px,100dvh)] z-10">
           <div className="flex flex-col gap-[20px] items-center w-full min-[483px]:fixed min-[483px]:left-1/2 min-[483px]:-translate-x-1/2 mt-[5vh] max-md:fixed md:absolute bottom-[35px] max-[344px]:bottom-[90px]">
-            {isEnded &&
+            {(isEnded || showPoster) &&
               MENU_ROWS.map((row, idx) => (
                 <div
                   key={idx}
