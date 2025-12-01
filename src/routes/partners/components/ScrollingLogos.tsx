@@ -20,19 +20,64 @@ const ScrollingLogos = ({ logos }: ScrollingLogosProps) => {
         // 원본 세트의 실제 너비 측정
         const originalWidth = originalSetRef.current.offsetWidth;
         // 정확히 원본 세트만큼 이동하도록 픽셀 값으로 설정
-        setAnimationDistance(`${-originalWidth}px`);
+        if (originalWidth > 0) {
+          setAnimationDistance(`${-originalWidth}px`);
+        } else {
+          // 너비가 0이면 다시 시도
+          requestAnimationFrame(() => {
+            setTimeout(calculateAnimation, 100);
+          });
+        }
       }
     };
 
-    // 이미지 로드 후 계산
-    const timer = setTimeout(calculateAnimation, 100);
+    // 이미지 로드 완료 대기
+    const images = originalSetRef.current?.querySelectorAll("img");
+    let loadedImages = 0;
+    const totalImages = images?.length || 0;
+
+    const handleImageLoad = () => {
+      loadedImages++;
+      if (loadedImages === totalImages || totalImages === 0) {
+        // 모든 이미지가 로드되거나 이미지가 없으면 계산
+        requestAnimationFrame(() => {
+          setTimeout(calculateAnimation, 100);
+        });
+      }
+    };
+
+    if (images && images.length > 0) {
+      images.forEach((img) => {
+        if (img.complete) {
+          handleImageLoad();
+        } else {
+          img.addEventListener("load", handleImageLoad);
+          img.addEventListener("error", handleImageLoad);
+        }
+      });
+    } else {
+      // 이미지가 없으면 바로 계산
+      requestAnimationFrame(() => {
+        setTimeout(calculateAnimation, 200);
+      });
+    }
 
     // 리사이즈 시 재계산
-    window.addEventListener("resize", calculateAnimation);
+    const handleResize = () => {
+      requestAnimationFrame(() => {
+        calculateAnimation();
+      });
+    };
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      clearTimeout(timer);
-      window.removeEventListener("resize", calculateAnimation);
+      if (images) {
+        images.forEach((img) => {
+          img.removeEventListener("load", handleImageLoad);
+          img.removeEventListener("error", handleImageLoad);
+        });
+      }
+      window.removeEventListener("resize", handleResize);
     };
   }, [logos]);
 
