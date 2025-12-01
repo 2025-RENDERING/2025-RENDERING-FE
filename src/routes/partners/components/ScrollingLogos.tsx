@@ -37,7 +37,7 @@ const ScrollingLogos = ({ logos }: ScrollingLogosProps) => {
   }, [logos]);
 
   return (
-    <div className="relative w-full overflow-hidden py-4">
+    <div className="relative w-full overflow-hidden py-4 mt-4 md:mt-0">
       {/* 원본 세트 - 너비 측정용 (숨김) */}
       <div ref={originalSetRef} className="flex items-center absolute opacity-0 pointer-events-none" style={{ visibility: "hidden" }}>
         {logos.map((logo, index) => (
