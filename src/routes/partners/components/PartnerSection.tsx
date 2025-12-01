@@ -50,15 +50,19 @@ const PartnerSection: React.FC<PartnerSectionProps> = ({
         <div className="flex-1 h-px bg-red-normal" />
       </div>
 
-      <div className="w-full border border-red-normal p-8 mb-4">
+      <div className="w-full border border-red-normal p-4 md:p-8 mb-4">
         <div className="mb-8 flex items-center justify-center overflow-hidden">
           {images.length > 0 ? (
             <div
-              className="flex items-center justify-center"
+              className="flex items-center justify-center w-full"
               style={{
                 gap: 0,
                 ...(imageWidth && imageHeight
-                  ? { maxWidth: `${imageWidth}px`, maxHeight: `${imageHeight}px`, width: images.length > 1 ? `${imageWidth}px` : "auto" }
+                  ? {
+                      maxWidth: images.length > 1 ? `${imageWidth}px` : "100%",
+                      maxHeight: `${imageHeight}px`,
+                      width: images.length > 1 ? `${imageWidth}px` : "100%",
+                    }
                   : {}),
               }}
             >
@@ -72,9 +76,12 @@ const PartnerSection: React.FC<PartnerSectionProps> = ({
                   if (images.length > 1) {
                     style.height = `${imageHeight}px`;
                     style.width = "auto";
+                    style.maxWidth = "100%";
                   } else {
-                    style.width = `${imageWidth}px`;
-                    style.height = `${imageHeight}px`;
+                    style.width = "100%";
+                    style.maxWidth = `${imageWidth}px`;
+                    style.height = "auto";
+                    style.maxHeight = `${imageHeight}px`;
                   }
                 }
 
@@ -83,7 +90,7 @@ const PartnerSection: React.FC<PartnerSectionProps> = ({
                     key={index}
                     src={image}
                     alt={`${title} ${index + 1}`}
-                    className={imageWidth || imageHeight ? "max-w-full max-h-full" : "max-w-full max-h-64 object-contain"}
+                    className={imageWidth || imageHeight ? "max-w-full max-h-full w-full h-auto" : "max-w-full max-h-64 object-contain w-full h-auto"}
                     style={style}
                   />
                 );

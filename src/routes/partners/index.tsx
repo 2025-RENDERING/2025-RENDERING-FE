@@ -4,9 +4,7 @@ import inclearLogo from "@/assets/partners/inclear.png";
 import jiguLogo from "@/assets/partners/jiguLogo.png";
 import monstaLogo from "@/assets/partners/monstaLogo.png";
 import kindLogo from "@/assets/partners/kindLogo.png";
-import inclear1 from "@/assets/partners/inclear1.png";
-import inclear2 from "@/assets/partners/inclear2.png";
-import inclear3 from "@/assets/partners/inclear3.png";
+import rectangleImage from "@/assets/partners/Rectangle.png";
 import softP from "@/assets/partners/softP.png";
 import softY from "@/assets/partners/softY.png";
 import monstaProduct from "@/assets/partners/monstaProduct.png";
@@ -32,7 +30,7 @@ const PartnersPage = () => {
           title="inclear."
           titleImage={inclearLogo}
           description={['"여성 건강의 모든 것."', "속과 겉을 모두 케어하는", "토탈 페미닌 케어 전문브랜드 '인클리어'"]}
-          images={[inclear1, inclear2, inclear3]}
+          images={[rectangleImage]}
           showDecoration={true}
           decorationCount={5}
           imageWidth={247}
