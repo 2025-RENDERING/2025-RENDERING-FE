@@ -20,7 +20,7 @@ const PartnersPage = () => {
 
   return (
     <div className="w-full">
-      <div className="pt-20 md:pt-0">
+      <div className="pt-20 md:pt-4">
         <ScrollingLogos logos={scrollingLogos} />
       </div>
 
