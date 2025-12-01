@@ -6,6 +6,7 @@ interface AnimateProps {
     top?: string;
     left?: string;
     right?: string;
+    bottom?: string;
   };
   exit?: string;
   isClicked: boolean;
@@ -20,6 +21,7 @@ const Animate = ({ Icon, position, exit, isClicked }: AnimateProps) => {
         top: position?.top,
         left: position?.left,
         right: position?.right,
+        bottom: position?.bottom,
       }}
       className={`
         absolute z-30

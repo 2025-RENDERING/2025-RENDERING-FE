@@ -3,8 +3,15 @@ import Layout from "./Layout";
 
 import SubwayIcon from "@/assets/subwayIcon.svg?react";
 import BusIcon from "@/assets/busIcon.svg?react";
+import Left7 from "@/assets/animation-left7-line.svg";
+import Right4 from "@/assets/animation-right4-line.svg";
+import Animate from "./Animate";
 
-const Way = () => {
+interface WayProps {
+  isClicked: boolean;
+}
+
+const Way = ({ isClicked }: WayProps) => {
   const TRANSPORTATION = [
     {
       id: 1,
@@ -90,7 +97,20 @@ const Way = () => {
             <p>서울창업허브 창동 B1</p>
           </div>
 
-          <div id="map" ref={mapRef} className="w-full h-[257px]"></div>
+          <div className="relative w-ful h-[257px]">
+            <div id="map" ref={mapRef} className="w-full h-full"></div>
+            <Animate
+              Icon={Left7}
+              position={{ top: "-96px", left: "-24px" }}
+              isClicked={isClicked}
+            />
+
+            <Animate
+              Icon={Right4}
+              position={{ bottom: "-31px", right: "-24px" }}
+              isClicked={isClicked}
+            />
+          </div>
 
           <div className="flex flex-col gap-[16px]">
             {TRANSPORTATION.map((t) => (
