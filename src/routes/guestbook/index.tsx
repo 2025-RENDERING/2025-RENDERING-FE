@@ -1,42 +1,48 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo, useState } from "react";
 import GuestbookForm from "@/components/guestbook/GuestbookForm";
 import GuestbookList from "@/components/guestbook/GuestbookList";
 import Pagination from "@/components/guestbook/Pagination";
-import { fetchGuestbookPage } from "@/service/api";
-import { type GuestbookEntry } from "@/types/guestbook/guestbookApi";
+import guestbookPages from '@/data/guestbook.json';
 
 import lineIcon from "@/assets/lineIcon.svg";
 
-const PAGE_SIZE = 10;
+type GuestbookPages = Record<string, Array<{
+  id: string | number;
+  author: string;
+  content?: string;
+  message?: string;
+  createdAt: string;
+}>>;
 
 const GuestbookPage: React.FC = () => {
-  const [entries, setEntries] = useState<GuestbookEntry[]>([]);
   const [currentPage, setCurrentPage] = useState(0);
-  const [totalPages, setTotalPages] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
 
-  const loadPage = async (page: number) => {
-    try {
-      setIsLoading(true);
-      const data = await fetchGuestbookPage(page, PAGE_SIZE);
-      setEntries(data.content);
-      setTotalPages(data.totalPages);
-      setCurrentPage(page);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const totalPages = useMemo(() => Object.keys(guestbookPages).length, []);
 
-  useEffect(() => {
-    loadPage(0);
-  }, []);
+  const entries = useMemo(() => {
+    const pageKey = `page_${currentPage}` as keyof typeof guestbookPages;
+    const pageEntries = (guestbookPages as GuestbookPages)[pageKey] as Array<{
+      id: string | number;
+      author: string;
+      content?: string;
+      message?: string;
+      createdAt: string;
+    }>;
+
+    return (pageEntries ?? []).map((entry) => ({
+      id: typeof entry.id === 'number' ? entry.id : parseInt(entry.id, 10),
+      author: entry.author,
+      message: entry.message ?? entry.content ?? '',
+      createdAt: entry.createdAt,
+    }));
+  }, [currentPage]);
 
   const handlePageChange = (page: number) => {
-    loadPage(page);
+    setCurrentPage(page);
   };
 
   const handleCreateSuccess = () => {
-    loadPage(0);
+    setCurrentPage(0);
   };
 
   return (
@@ -54,13 +60,9 @@ const GuestbookPage: React.FC = () => {
         <img src={lineIcon} alt="line icon" className="mx-auto mb-[80px]" />
 
         <section>
-          {isLoading && <p className="py-10 text-center text-sm text-gray-500">불러오는 중...</p>}
-
-          {!isLoading && (
-            <div className="grid">
-              <GuestbookList entries={entries} />
-            </div>
-          )}
+          <div className="grid">
+            <GuestbookList entries={entries} />
+          </div>
         </section>
 
         <section className="mt-[48px] flex justify-center">
